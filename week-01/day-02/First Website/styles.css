@@ -1,0 +1,98 @@
+body{
+  margin: 0;
+}
+
+.navigationbg{
+
+	background-color:#333333;
+	margin: 0;
+	padding: 0;
+}
+
+p{
+	font-family: consolas, courier;
+	font-size: 24px;
+	font-weight: normal;
+}
+
+.logo{
+	display: inline-block;
+	padding-top: 9px;
+}
+
+.body {
+	background-image: url('assets/background.png');
+	padding: 5% 10% 10% 10%;
+}
+
+nav{
+	width:100%;
+	height:auto;
+	float:right;
+	background-color:#333333;
+	word-spacing: 40px;
+}
+
+img{
+	padding-left: 10%;
+  display: inline-block;
+}
+
+ul {
+	float:right;
+	display: inline-block;
+  padding-right: 10%;
+}
+
+li {
+	display: inline;
+	text-align: justify;
+	border:none;
+	outline:0
+}
+
+h1, h2, h3, h4{
+	font-family: 'Roboto', sans-serif;
+}
+
+h1{
+	font-size: 60px;
+}
+
+h2{
+	font-size: 45px;
+}
+
+h3 {
+	color: #ff0099;
+	font-size: 36px;
+	font-weight: lighter;
+	margin-bottom: 0px;
+}
+
+h4{
+	font-size: 34px;
+	margin-bottom: 0px;
+}
+
+a {
+	color: #ff0099;
+}
+
+.separator{
+	font-weight: bold;
+	font-size: 26px;
+	font-weight: lighter;
+	text-align: center;
+	padding-top: 10px;
+	}
+
+.header-definitions{
+	font-size: 46px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.definitions{
+	font-family: "Curier", Curier, serif;
+}

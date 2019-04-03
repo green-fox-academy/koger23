@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="utf-8"/>
+        <title>The Blog</title>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+    </head>
+
+
+    <body>
+        <nav>
+            <p id="maintitle">The Blog</p>
+        </nav>
+        <main>
+            <div class="addnewpost">
+                <p>Add new post</p>
+            </div>
+
+            <div class="add_post">
+                <form>
+                    <b>Title:</b><br>
+                        <input id="titleinput" type="text" name="Lorem" placeholder="Lorem ipsum dolor sit amet"><br>
+                    <div class="content_input">
+                        <b>Content:</b><br>
+                        <textarea id="contentinput" cols="10" rows="5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus elementum fringilla velit eu pharetra. Cras sit amet felis sed nisi bibendum tempus. Cras convallis pharetra lobortis. Maecenas a mollis orci. In diam libero, dapibus ut tortor nec, tristique porta felis. Pellentesque aliquet lorem eget massa tristique commodo. Morbi et risus nec velit cursus feugiat. Pellentesque quis commodo nisi.
+                    </textarea>
+                    </div><br>
+                        <button id="submitbtn">Submit</button>
+
+                </form>
+            </div>
+            <div class="posts">
+                <div class="addnewpost">
+                    <p>Posts</p>
+                </div>
+
+                <ul id='thelist'></ul>
+
+                <div class="post">
+                    <h1>Lorem ipsum dolor sit amet</h1>
+                    <p id="postcontent">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus elementum fringilla velit eu pharetra. Cras sit amet felis sed nisi bibendum tempus. Cras convallis pharetra lobortis. Maecenas a mollis orci. In diam libero, dapibus ut tortor nec, tristique porta felis. Pellentesque aliquet lorem eget massa tristique commodo. Morbi et risus nec velit cursus feugiat. Pellentesque quis commodo nisi. </p>
+                </div>
+                <div class="post">
+                    <h1>Lorem ipsum dolor sit amet</h1>
+                    <p id="postcontent">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus elementum fringilla velit eu pharetra. Cras sit amet felis sed nisi bibendum tempus. Cras convallis pharetra lobortis. Maecenas a mollis orci. In diam libero, dapibus ut tortor nec, tristique porta felis. Pellentesque aliquet lorem eget massa tristique commodo. Morbi et risus nec velit cursus feugiat. Pellentesque quis commodo nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus elementum fringilla velit eu pharetra. Cras sit amet felis sed nisi bibendum tempus. Cras convallis pharetra lobortis. Maecenas a mollis orci. In diam libero, dapibus ut tortor nec, tristique porta felis. Pellentesque aliquet lorem eget massa tristique commodo. Morbi et risus nec velit cursus feugiat. Pellentesque quis commodo nisi. </p>
+                </div>
+            </div>
+        </main>
+    </body>
+
+
+
+  <script>
+
+      //Listener for submit btn
+      document.getElementById("submitbtn").onclick = function() {
+
+          var textTitle;
+          var textContent;
+          var list;
+          var item;
+
+          textTitle = document.getElementById("titleinput").value;
+          textContent = document.getElementById("contentinput").value;
+
+          list = document.createElement("LI");
+          item = document.createTextNode(
+                  '<div class="post">' +
+                  '<h1>' + textTitle + "</h1>" +
+                  '<p id="postcontent">' + textContent + "</p>" +
+                  "</div>"
+          )
+
+          list.appendChild(item);
+          document.getElementById("thelist").innerHTML += item.data;
+      }
+
+  </script>
+
+</html>
