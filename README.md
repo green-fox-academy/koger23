@@ -1,4 +1,6 @@
 # koger23
-Repo of [koger23 (Gergely Kocsis)](https://github.com/koger23)
+**Repo of: [koger23 (Gergely Kocsis)](https://github.com/koger23)
+**Group: Ferrilata-otters (Java)
 
-[Syllabus Repository](https://github.com/green-fox-academy/otters-syllabus)
+## Otters-links:
+⋅⋅⋅ - [Otters' Syllabus](https://github.com/green-fox-academy/otters-syllabus)
