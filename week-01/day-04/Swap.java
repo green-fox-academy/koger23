@@ -4,7 +4,9 @@ public class Swap {
     int a = 526; //123
     int b = 123; //526
 
-    System.out.println(a);
-    System.out.println(b);
+    int tmp = a;
+
+    System.out.println(a=b);
+    System.out.println(b=tmp);
   }
 }
