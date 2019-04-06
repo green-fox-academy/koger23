@@ -8,15 +8,31 @@ public class GuessMyNumber {
 
     private int lives = 5;
 
-    public Player() {
+    public Player(int lives) {
+
+      this.lives = lives;
+
     }
 
     public void decreaseLives() {
 
-      System.out.println("You have only " + --lives + " lives left.");
+      if (lives != 0) {
+        System.out.println("You have only " + --lives + " lives left.");
+      } else {
+        System.out.println("This is your last chance...");
+      }
 
     }
 
+    public int getLives() {
+      return this.lives;
+    }
+
+    public void setLives(int lives) {
+
+      this.lives = lives;
+
+    }
   }
 
   public static void main(String[] args) {
@@ -27,21 +43,54 @@ public class GuessMyNumber {
 
   public static void guessing() {
 
-    Player player = new Player();
+    int min;
+    int max;
 
+    Player player;
+    Scanner scanner = new Scanner(System.in);
     Random random = new Random();
 
-    int randomNumber = random.nextInt(100 - 1);
+    // set range
+    System.out.println("Please give the range: ");
+    System.out.print("From: ");
+    min = scanner.nextInt();
+
+    do {
+      System.out.print("To (higher than " + min + "): ");
+      max = scanner.nextInt();
+
+      if (max <= min) {
+        System.out.println("The upper limit must be higher than the lower one (from < to). Try again.");
+      }
+
+    } while (min >= max);
+
+    // set lives
+    System.out.println("Please give the number of maximum lives (tries):");
+
+    int lives;
+    do {
+      lives = scanner.nextInt();
+
+      if (lives < 1){
+        System.out.println("It must be minimum 1. Try again.");
+      }
+
+    } while (lives < 1);
+    player = new Player(lives);
+
+    int randomNumber = random.nextInt(max - min) + min;
     int guessNumber;
 
-    Scanner scanner = new Scanner(System.in);
 
-    System.out.print("Guess a number between 1 and 100: ");
+    System.out.print("Guess a number between " + min + " and " + max + ": ");
     guessNumber = scanner.nextInt();
+
+
 
     do {
 
-      if (player.lives != 1) {
+      if (player.lives != 0) {
 
         if (guessNumber < randomNumber) {
 
@@ -59,12 +108,14 @@ public class GuessMyNumber {
         }
       } else {
         System.out.println("You died. Game over.");
+        System.out.println("The number was: " + randomNumber);
         break;
       }
 
       System.out.println("Guess again between 1-100: ");
       guessNumber = scanner.nextInt();
 
-    } while (guessNumber != randomNumber);
+    } while ((player.lives > 0) && (guessNumber != randomNumber));
+    System.out.println("Congratulations. You won!");
   }
 }
