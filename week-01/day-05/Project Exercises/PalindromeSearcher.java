@@ -1,4 +1,3 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -20,7 +19,17 @@ public class PalindromeSearcher {
     Scanner scanner = new Scanner(System.in);
     textInput = scanner.nextLine();
 
-    palindromeChecker(textInput); // substrings should be passed to this method TODO
+
+    for (int j=0; j<textInput.length()-3; j++){
+
+      for (int i=2; i<textInput.length()-j; i++){
+        String textToCheck = textInput.substring(j, i+1+j);
+//        System.out.println(textToCheck);
+        if (palindromeChecker(textToCheck)){
+          output.add(textToCheck);
+        }
+      }
+    }
 
     System.out.println("\n\nPalindromes: " + output);
   }
@@ -37,13 +46,13 @@ public class PalindromeSearcher {
       if (textCharArray[0+j] == textCharArray[textLength-1-j]) {
 
         result = true;
-        System.out.println(textCharArray[0+j] + " vs " + textCharArray[textLength-1-j] + " - " + result);
+//        System.out.println(textCharArray[0+j] + " vs " + textCharArray[textLength-1-j] + " - " + result);
 
       } else {
 
         result = false;
-        System.out.println(textCharArray[0+j] + " vs " + textCharArray[textLength-1-j] + " - " + result);
-        System.out.println("This is not a palindrome");
+//        System.out.println(textCharArray[0+j] + " vs " + textCharArray[textLength-1-j] + " - " + result);
+//        System.out.println("This is not a palindrome");
         break;
       }
 
