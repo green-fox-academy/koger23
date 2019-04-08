@@ -18,7 +18,7 @@ public class Bubble {
 
   }
 
-  private static String bubble(int[] numList, boolean order) {
+  private static Integer[] bubbleArrays(int[] numList, boolean order) {
 
     Integer[] resultList = new Integer[numList.length];
 
@@ -34,7 +34,17 @@ public class Bubble {
     }
 
 
-    return Arrays.toString(resultList);
+    return resultList;
+
+  }
+
+  public static String bubble(int[] numList, boolean order){
+
+    // Printing the list from bubbleArrays as string list
+
+    Integer[] result = bubbleArrays(numList, order);
+
+    return Arrays.toString(result);
   }
 
 }
