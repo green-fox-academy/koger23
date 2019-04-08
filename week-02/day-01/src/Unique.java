@@ -14,7 +14,7 @@ public class Unique {
 
   public static List unique(int[] numList){
 
-    List resultList = new ArrayList<Integer>();
+    List<Integer> resultList = new ArrayList<>();
 
     for(int i = 0; i < numList.length; i++){
 

@@ -18,7 +18,7 @@ public class SubInt {
 
   public static List subInt(int inputNumber, int[] numList){
 
-    List indexes = new ArrayList<Integer>();
+    List<Integer> indexes = new ArrayList<>();
 
     for (int i = 0; i < numList.length; i++){
 

@@ -13,7 +13,7 @@ public class PalindromeSearcher {
 
     String textInput;
     Scanner scanner = new Scanner(System.in);
-    ArrayList output = new ArrayList<String>();
+    ArrayList<String> output = new ArrayList<>();
 
     // get text from the user
     System.out.print("Type something (at least 3 letter): ");
@@ -72,13 +72,10 @@ public class PalindromeSearcher {
       if ((textCharArray[0+j] == textCharArray[textLength-1-j]) && (text.length() >= 3)) {
 
         result = true;
-//        System.out.println(textCharArray[0+j] + " vs " + textCharArray[textLength-1-j] + " - " + result);
 
       } else {
 
         result = false;
-//        System.out.println(textCharArray[0+j] + " vs " + textCharArray[textLength-1-j] + " - " + result);
-//        System.out.println("This is not a palindrome.");
           break;
 
       }
