@@ -40,6 +40,8 @@ public class ListIntroduction1 {
 
     }
 
+    names.clear();
+
   }
 
 }
