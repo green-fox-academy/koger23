@@ -17,9 +17,9 @@ public class Factorio {
 
   }
 
-  public static int factorio(int inputNumber){
+  public static long factorio(int inputNumber){
 
-    int factorial = 1;
+    long factorial = 1;
 
     for (int i=inputNumber; i>1; i--) {
 
