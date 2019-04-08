@@ -88,3 +88,7 @@ modules.xml
 
 # I added:
 .idea/
+.ipr
+tmp/
+temp/
+tmp.java

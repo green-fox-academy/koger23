@@ -40,7 +40,11 @@ public class Bubble {
 
   public static String bubble(int[] numList, boolean order){
 
-    // Printing the list from bubbleArrays as string list
+    /*
+    Printing the list from bubbleArrays as string list
+    Because with array it cannot be printed this way.
+    With ArrayList<>() or List<>() it is possible
+     */
 
     Integer[] result = bubbleArrays(numList, order);
 
