@@ -12,9 +12,9 @@ public class TakesLonger {
 
     String quotePart_1 = quote.substring(0, quote.indexOf("you expect"));
 
-    String quotePart_2 = quote.substring(quote.indexOf(" you expect"), quote.length());
+    String quotePart_2 = quote.substring(quote.lastIndexOf("you expect"));
 
-    quote = quotePart_1 + textToInsert + quotePart_2;
+    quote = quotePart_1 + textToInsert + " " + quotePart_2;
 
     System.out.println(quote);
   }
