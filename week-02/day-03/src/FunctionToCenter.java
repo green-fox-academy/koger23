@@ -44,28 +44,6 @@ public class FunctionToCenter {
 
     }
 
-
-
-
-//    for (int i = 0; i < (2 * (WIDTH + HEIGHT) / step); i++){
-//a
-//
-//      drawLineFunc(x, y, graphics);
-//
-//      if ((x != WIDTH) && (y == 0) || (x != WIDTH) && (y == HEIGHT)){
-//
-//        x += step;
-//
-//      } else if ((y != HEIGHT) && (x == 0) || (y != HEIGHT) && (x == WIDTH)){
-//
-//        y += step;
-//
-//      }
-//
-//
-//      System.out.println("X " + x + " Y " + y);
-//    }
-
   }
 
   public static void drawLineFunc(int x, int y, Graphics graphics){
@@ -75,8 +53,8 @@ public class FunctionToCenter {
   }
 
   // Don't touch the code below
-  static int WIDTH = 640;
-  static int HEIGHT = 640;
+  static int WIDTH = 320;
+  static int HEIGHT = 320;
 
   public static void main(String[] args) {
     JFrame jFrame = new JFrame("Drawing");
