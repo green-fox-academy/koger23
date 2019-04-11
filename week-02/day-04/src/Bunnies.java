@@ -7,14 +7,15 @@ public class Bunnies {
      * the total number of ears across all the bunnies recursively (without loops or multiplication).
      */
 
-    System.out.println(countBunnies(10));
+    System.out.println(countBunniesLoop(16));
+    System.out.println(countBunnies(16));
 
   }
 
   private static int countBunnies(int number) {
 
-    if (number == 1){
-      return number + 1;
+    if (number == 0){
+      return number;
 
     } else {
 
@@ -23,7 +24,7 @@ public class Bunnies {
     }
   }
 
-  /*private static int countBunnies(int number) {
+  private static int countBunniesLoop(int number) {
 
     int ears = 0;
 
@@ -34,5 +35,5 @@ public class Bunnies {
 
     return ears;
 
-  }*/
+  }
 }
