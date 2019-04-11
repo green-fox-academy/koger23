@@ -7,7 +7,7 @@ public class Strings {
     * where all the lowercase 'x' chars have been changed to 'y' chars.
     * */
 
-    System.out.println(stringChange("axxon"));
+    System.out.println(stringChange("axon"));
 
   }
 
@@ -24,8 +24,6 @@ public class Strings {
 
       if (lastString.equals("x")){
         lastString = "y";
-      } else if (lastString.equals("X")){
-        lastString = "Y";
       }
 
       return stringChange(subString) + lastString;
