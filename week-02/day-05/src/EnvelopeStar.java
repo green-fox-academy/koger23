@@ -9,16 +9,16 @@ public class EnvelopeStar {
 
   final static int WIDTH = 320;
   final static int HEIGHT = 320;
-  final static Color greenColor = new Color(100, 200, 50);
+  final static Color greenColor = new Color(0, 180, 50);
 
 
   public static void mainDraw(Graphics graphics) {
 
+    graphics.setColor(greenColor);
     drawThemAll(WIDTH, HEIGHT, graphics);
   }
 
   public static void drawThemAll(int x, int y, Graphics graphics){
-
 
 
   }
