@@ -10,7 +10,10 @@ public class LinePlay {
 
   final static int WIDTH = 320;
   final static int HEIGHT = 320;
-  final static int STEP = WIDTH / 32;
+  final static int SCALE = 16;
+  final static int STEP = WIDTH / SCALE;
+  final static Color greenColor = new Color(100, 200, 50);
+  final static Color purpleColor = new Color(180, 100, 255);
 
 
   public static void mainDraw(Graphics graphics) {
@@ -20,19 +23,25 @@ public class LinePlay {
 
   public static void drawThemAll(int x, int y, Graphics graphics){
 
-    graphics.setColor(new Color(180, 100, 255));
+    int counter = 1;
 
     if ( y > 0) {
-      int counter = 1;
 
-      graphics.drawLine(x - STEP * counter, 0, WIDTH, y - STEP * counter);
+      graphics.setColor(purpleColor);
+      graphics.drawLine(x - STEP, 0, WIDTH, y - STEP);
 
-      if (y >= 1) {
+      graphics.setColor(greenColor);
+      graphics.drawLine(x - STEP, HEIGHT,  0, y - STEP);
+
+      if (x + y >= 1) {
         counter++;
+        graphics.setColor(purpleColor);
         drawThemAll(x - STEP * counter, y - STEP * counter, graphics);
+
+
+
       }
     }
-
 
   }
 
