@@ -2,6 +2,7 @@ import javax.swing.*;
 
 import java.awt.*;
 
+
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 
@@ -9,6 +10,7 @@ public class LinePlay {
 
   final static int WIDTH = 320;
   final static int HEIGHT = 320;
+  final static int STEP = WIDTH / 32;
 
 
   public static void mainDraw(Graphics graphics) {
@@ -18,7 +20,19 @@ public class LinePlay {
 
   public static void drawThemAll(int x, int y, Graphics graphics){
 
-    
+    graphics.setColor(new Color(180, 100, 255));
+
+    if ( y > 0) {
+      int counter = 1;
+
+      graphics.drawLine(x - STEP * counter, 0, WIDTH, y - STEP * counter);
+
+      if (y >= 1) {
+        counter++;
+        drawThemAll(x - STEP * counter, y - STEP * counter, graphics);
+      }
+    }
+
 
   }
 
