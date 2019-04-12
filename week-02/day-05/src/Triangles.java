@@ -10,8 +10,8 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class Triangles {
 
-  final static int WIDTH = 320;
-  final static int HEIGHT = 320;
+  final static int WIDTH = 640;
+  final static int HEIGHT = 640;
   final static int LENGTH = 40;
 
 
@@ -22,27 +22,22 @@ public class Triangles {
 
   public static void drawThemAll(int x, int y, Graphics graphics){
 
-    int h = (int) (0.866 * LENGTH);
-    int length = LENGTH;
-
-
-      for (int i=0; i < WIDTH; i += LENGTH){
-
-        graphics.drawLine(x + i, y, x + i + length, y);
-        graphics.drawLine(x + i + length, y, x + i + length/2, HEIGHT - h);
-        graphics.drawLine(x + i + length/2, HEIGHT - h, x + i, y);
-
-      }
+    drawTriangle(0, HEIGHT, WIDTH, LENGTH, graphics);
 
   }
 
-  public static void drawTriangle(int x, int y, int length, Graphics graphics){
+  public static void drawTriangle(int x, int y, int maxWidth, int length, Graphics graphics){
 
     int h = (int) (0.866 * length);
 
     graphics.drawLine(x, y, x + length, y);
-    graphics.drawLine(x + length, y, x + length/2, HEIGHT - h);
-    graphics.drawLine(x + length/2, HEIGHT - h, x, y);
+    graphics.drawLine(x + length, y, x + length/2, y - h);
+    graphics.drawLine(x + length/2, y - h, x, y);
+
+    if ((x < maxWidth - length)){
+      drawTriangle(x + length, y, maxWidth, length, graphics);
+      drawTriangle(x + length / 2, y - h, maxWidth - length/2, length, graphics);
+    }
 
   }
 
