@@ -16,10 +16,10 @@ public class TicTacToe {
     System.out.println(ticTacResult("assets/win-o.txt"));
     // Should print "O"
 
-    System.out.println(ticTacResult("assets/win-x.txt"));
+//    System.out.println(ticTacResult("assets/win-x.txt"));
     // Should print "X"
 
-    System.out.println(ticTacResult("assets/draw.txt"));
+//    System.out.println(ticTacResult("assets/draw.txt"));
     // Should print "Draw"
   }
 
@@ -36,10 +36,14 @@ public class TicTacToe {
       // populate matrix
       for (int i = 0; i < 3; i++){
 
+
         for (int j = 0; j < 3; j++){
 
-          matrix[i][j] = rows.get(i).substring(i, i+1);
+          String s = rows.get(i).substring(j, j + 1);
+
+          matrix[i][j] = s;
         }
+
       }
 
       for (String row[] : matrix){
@@ -47,6 +51,7 @@ public class TicTacToe {
         System.out.println(Arrays.toString(row));
 
       }
+
 
     } catch (IOException e) {
       e.printStackTrace();
