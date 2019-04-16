@@ -18,6 +18,8 @@ public class Logs {
     List<String[]> log = readFile("assets/log.txt");
 
     System.out.println(getUniqIPs(log));
+    
+    System.out.println(getGetPostRatio(log));
 
   }
 
@@ -60,15 +62,31 @@ public class Logs {
 
       if (!(uniqIPs.contains(ip))){
         uniqIPs.add(ip);
-      } 
+      }
     }
 
     return uniqIPs;
   }
 
-  public static int getGetPostRatio(List<String[]> fileContent){
+  public static double getGetPostRatio(List<String[]> fileContent){
 
-    int ratio = 0;
+    int cntGET = 0;
+    int cntPOST = 0;
+    double ratio;
+
+    for (String[] lineContent : fileContent) {
+
+      String request = lineContent[2];
+
+      if (request.equals("GET")){
+        cntGET++;
+      } else {
+        cntPOST++;
+      }
+
+    }
+
+    ratio = cntGET / (double) cntPOST;
 
     return ratio;
   }
