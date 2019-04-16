@@ -50,37 +50,30 @@ public class Lottery {
 
       }
 
+      int[][] lottery = new int[90][2];
       // Put numbers into map
       // TODO this step should be merged with the prev. one
       for (int i = 0; i < numbers.length; i++) {
 
         numberOfOccurances.put(numbers[i], i + 1);
         top5_occur.add(numbers[i]);
+
+        lottery[i][0] = i+1;
+        lottery[i][1] = numbers[i];
       }
 
-      Collections.sort(top5_occur);
+      sortbyColumn(lottery, 1);
 
-      // remains top 5 occurances
-      top5_occur = top5_occur.subList(top5_occur.size() - 5, top5_occur.size());
+      System.out.println("TOP 5 most common lottery numbers:\nnumber : occurance (times)");
+      for (int i = lottery.length - 1; i >= 0; i--){
 
-      for (int i = top5_occur.size() - 1; i >= 0; i--){
-
-        int occur = top5_occur.get(i);
-        int number = numberOfOccurances.get(occur);
-
-        List<Integer> moreOcc = new ArrayList<>();
-
-        for (Integer key: numberOfOccurances.keySet()){
-
-          if (key == occur){
-            moreOcc.add(numberOfOccurances.get(key));
-            System.out.println("Value num: " + numberOfOccurances.get(key));
-          }
-
+        if (i == lottery.length - 6){
+          break;
         }
 
-        System.out.println(number + ": " + occur);
+        System.out.println(lottery[i][0] + ": " + lottery[i][1]);
       }
+
 
 
     } catch (IOException e) {
@@ -88,5 +81,24 @@ public class Lottery {
     }
 
 
+  }
+
+  public static void sortbyColumn(int arr[][], int col)
+  {
+    // Using built-in sort function Arrays.sort
+    Arrays.sort(arr, new Comparator<int[]>() {
+
+      @Override
+      // Compare values according to columns
+      public int compare(int[] entry1, int[] entry2) {
+
+        // To sort in descending order revert
+        // the '>' Operator
+        if (entry1[col] > entry2[col])
+          return 1;
+        else
+          return -1;
+      }
+    });  // End of function call sort().
   }
 }
