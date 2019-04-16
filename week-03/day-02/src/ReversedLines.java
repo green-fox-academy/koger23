@@ -40,9 +40,7 @@ public class ReversedLines {
         reversedContent.add(reversedLine);
       }
 
-      for (String line : reversedContent){
-        System.out.println(line);
-      }
+      Files.write(src, reversedContent);
 
     } catch (IOException e) {
       e.printStackTrace();
