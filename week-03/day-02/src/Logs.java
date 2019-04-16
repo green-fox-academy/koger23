@@ -17,7 +17,7 @@ public class Logs {
 
     List<String[]> log = readFile("assets/log.txt");
 
-    System.out.println(Arrays.toString(log.get(0)));
+    System.out.println(getUniqIPs(log));
 
   }
 
@@ -53,6 +53,15 @@ public class Logs {
   public static List<String> getUniqIPs(List<String[]> fileContent){
 
     List<String> uniqIPs = new ArrayList<>();
+
+    for (String[] lineContent : fileContent){
+
+      String ip = lineContent[1];
+
+      if (!(uniqIPs.contains(ip))){
+        uniqIPs.add(ip);
+      } 
+    }
 
     return uniqIPs;
   }
