@@ -110,6 +110,8 @@ public class Ship {
 
     int numberOfLoss = (int) (Math.random() * 50);
 
+    System.out.println("\n\nBATTLE TIME!!! " + getName() + " vs . " + otherShip.getName() + "\n\n");
+
     setNumberOfBattles(getNumberOfBattles() + 1);
     otherShip.setNumberOfBattles(getNumberOfBattles() + 1);
 
@@ -121,6 +123,8 @@ public class Ship {
 
       otherShip.losePirates(numberOfLoss);
 
+      System.out.println(getName() + " won.");
+
       return true;
 
     } else {
@@ -130,6 +134,8 @@ public class Ship {
       otherShip.winnerParty();
 
       losePirates(numberOfLoss);
+
+      System.out.println(otherShip.getName() + " won.");
 
       return false;
     }
@@ -143,7 +149,9 @@ public class Ship {
       if (deaths > crew.size()){
         crew.clear();
         captain.setAlive(false);
+        System.out.println("Everyone died on " + getName());
       } else {
+        System.out.println(getName() + " lost " + deaths + " pirates...");
         crew = crew.subList(0, deaths);
       }
     } else {
