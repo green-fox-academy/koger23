@@ -5,6 +5,9 @@ public class Armada {
 
   private List<Ship> armada = new ArrayList<>();
 
+  public Armada() {
+  }
+
   public Armada(List<Ship> armada) {
     this.armada = armada;
   }
@@ -17,7 +20,26 @@ public class Armada {
     this.armada = armada;
   }
 
-  private boolean war(Armada otherArmada){
+  public void fillupArmada(){
+
+    for (int i = 0; i < 1 + Math.random() * 50; i++){
+
+      Ship ship = new Ship();
+
+      ship.setName("Black Pearl - " + i);
+
+      ship.fillShip();
+
+      ship.shipInfo();
+
+      armada.add(ship);
+
+    }
+
+  }
+
+
+  public boolean war(Armada otherArmada){
 
     while ((armada.size() > 0) && (otherArmada.getArmada().size() > 0)){
 
@@ -44,7 +66,12 @@ public class Armada {
 
     }
 
-    return true;
+    if ((armada.size()>0) && (otherArmada.getArmada().size() == 0)){
+      return true;
+    } else {
+      return false;
+    }
+
   }
 
 }
