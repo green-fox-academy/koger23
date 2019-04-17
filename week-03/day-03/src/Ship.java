@@ -138,11 +138,16 @@ public class Ship {
 
   public void losePirates(int deaths){
 
-    if (deaths > crew.size()){
-      crew.clear();
-      captain.setAlive(false);
+    if (crew.size() > 0){
+
+      if (deaths > crew.size()){
+        crew.clear();
+        captain.setAlive(false);
+      } else {
+        crew = crew.subList(0, deaths);
+      }
     } else {
-      crew = crew.subList(0, deaths);
+      System.out.println("Ship is unfilled with crew and captain.");
     }
   }
 
@@ -154,6 +159,8 @@ public class Ship {
           p.setToxicLevel((int) (p.getToxicLevel() + Math.random() * 3));
         }
       }
+    } else {
+      System.out.println("Ship is unfilled with crew and captain.");
     }
   }
 
