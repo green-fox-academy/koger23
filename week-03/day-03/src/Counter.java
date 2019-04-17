@@ -1,13 +1,17 @@
 public class Counter {
 
   private int counter;
+  private int initValue;
 
   public Counter() {
     this(0);
+    this.initValue = 0;
+
   }
-  
+
   public Counter(int counter) {
     this.counter = counter;
+    this.initValue = counter;
   }
 
   public void add(int number){
@@ -19,10 +23,11 @@ public class Counter {
   }
 
   public void reset(){
-    this.counter = 0;
+    this.counter = initValue;
   }
 
   public int get(){
     return this.counter;
   }
+
 }
