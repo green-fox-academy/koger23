@@ -116,6 +116,9 @@ public class Ship {
     if (this.score > otherShip.getScore()){
 
       setNumberOfWins(getNumberOfWins() + 1);
+
+      winnerParty();
+
       otherShip.losePirates(numberOfLoss);
 
       return true;
@@ -123,6 +126,9 @@ public class Ship {
     } else {
 
       otherShip.setNumberOfWins(getNumberOfWins() + 1);
+
+      otherShip.winnerParty();
+
       losePirates(numberOfLoss);
 
       return false;
@@ -131,11 +137,24 @@ public class Ship {
   }
 
   public void losePirates(int deaths){
-    //TODO
+
+    if (deaths > crew.size()){
+      crew.clear();
+      captain.setAlive(false);
+    } else {
+      crew = crew.subList(0, deaths);
+    }
   }
 
   public void winnerParty(){
-    //TODO
+
+    if (getCrew().size() != 0){
+      for (Pirate p : crew){
+        if(p.isAlive()){
+          p.setToxicLevel((int) (p.getToxicLevel() + Math.random() * 3));
+        }
+      }
+    }
   }
 
   public static void main(String[] args) {
