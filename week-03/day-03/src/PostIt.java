@@ -41,8 +41,9 @@ public class PostIt {
 
   public static void main(String[] args) {
 
-
-
+    PostIt postIt_1 = new PostIt("orange", "Idea 1", "blue");
+    PostIt postIt_2 = new PostIt("pink", "Awesome", "black");
+    PostIt postIt_3 = new PostIt("yellow", "Superb!", "green");
 
   }
 
