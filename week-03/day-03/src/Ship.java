@@ -125,6 +125,9 @@ public class Ship {
 
       System.out.println(getName() + " won.");
 
+      calcScore();
+      otherShip.calcScore();
+
       return true;
 
     } else {
@@ -136,6 +139,9 @@ public class Ship {
       losePirates(numberOfLoss);
 
       System.out.println(otherShip.getName() + " won.");
+
+      calcScore();
+      otherShip.calcScore();
 
       return false;
     }
