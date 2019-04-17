@@ -38,6 +38,18 @@ public class Armada {
 
   }
 
+  public int getLiveShips(){
+
+    int numberOfLiveShip = 0;
+
+    for (Ship s : armada){
+      if (s.getCrew().size() > 0){
+        numberOfLiveShip++;
+      }
+    }
+    return numberOfLiveShip;
+  }
+
 
   public boolean war(Armada otherArmada){
 
@@ -46,20 +58,25 @@ public class Armada {
       Ship ship_1 = null;
       Ship ship_2 = null;
 
-      for (Ship ship : armada){
+      if (getLiveShips() > 0){
+        for (Ship ship : armada){
 
-        if (ship.getCrew().size() > 0){
-          ship_1 = ship;
-          break;
+          if (ship.getCrew().size() > 0){
+            ship_1 = ship;
+            break;
+          }
         }
       }
 
-      for (Ship ship : armada){
+      if (otherArmada.getLiveShips() > 0){
+        for (Ship ship : otherArmada.getArmada()){
 
-        if (ship.getCrew().size() > 0){
-          ship_2 = ship;
-          break;
+          if (ship.getCrew().size() > 0){
+            ship_2 = ship;
+            break;
+          }
         }
+
       }
 
       ship_1.battle(ship_2);
