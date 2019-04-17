@@ -78,7 +78,7 @@ public class Ship {
 
   public void fillShip(){
 
-    int numberOfPirates = (int) (Math.random() * 100);
+    int numberOfPirates = (int) (20 + Math.random() * 20);
 
     for (int i = 0; i < numberOfPirates; i++){
 
@@ -108,9 +108,9 @@ public class Ship {
 
   public boolean battle(Ship otherShip){
 
-    int numberOfLoss = (int) (Math.random() * 50);
+    int numberOfLoss = (int) (20 + Math.random() * 10);
 
-    System.out.println("\n\nBATTLE TIME!!! " + getName() + " vs . " + otherShip.getName() + "\n\n");
+    System.out.println("\n\nBATTLE TIME!!!\n\t " + getName() + " vs . " + otherShip.getName() + "\n\n");
 
     setNumberOfBattles(getNumberOfBattles() + 1);
     otherShip.setNumberOfBattles(getNumberOfBattles() + 1);
