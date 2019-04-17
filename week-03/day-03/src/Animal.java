@@ -28,5 +28,23 @@ public class Animal {
     this.thirst = thirst;
   }
 
+  public void eat(){
+
+    if (this.hunger != 0){
+      this.hunger--;
+    }
+  }
+
+  public void drink(){
+
+    if (this.thirst != 0){
+      this.thirst--;
+    }
+  }
+
+  public void play(){
+    this.thirst++;
+    this.hunger++;
+  }
 
 }
