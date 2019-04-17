@@ -1,20 +1,23 @@
 public class Pirate {
 
-  private String name;
+  private int id;
   private boolean isIntoxicated;
+  private int toxicLevel;
   private boolean hasParrot;
   private boolean isAlive;
 
-  public Pirate(String name, boolean isIntoxicated, boolean hasParrot) {
-    this.name = name;
+  public Pirate(int id, boolean isIntoxicated, boolean hasParrot) {
+    this.id = id;
     this.isIntoxicated = isIntoxicated;
     this.hasParrot = hasParrot;
     this.isAlive = true;
+    this.toxicLevel = 0;
   }
 
   public void drinkSomeRum(){
     if (isAlive){
       this.isIntoxicated = true;
+      toxicLevel++;
     } else {
       System.out.println("He is dead.");
     }
@@ -22,14 +25,17 @@ public class Pirate {
   }
 
   public void howsItGoingMate(){
+
     if (isAlive){
-      if (this.isIntoxicated){
-        for (int i = 0; i < 5; i++){
-          System.out.println("Pour me anudder!");
-        }
+
+      if ((!isIntoxicated) && (this.toxicLevel < 5)) {
+        System.out.println("Pour me anudder!");
+
       } else {
         System.out.println("Arghh, I'ma Pirate. How d'ya d'ink its goin?");
+        setIntoxicated(true);
       }
+
     } else {
       System.out.println("He is dead.");
     }
@@ -59,12 +65,12 @@ public class Pirate {
 
   }
 
-  public String getName() {
-    return name;
+  public int getId() {
+    return id;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setId(int id) {
+    this.id = id;
   }
 
   public boolean isIntoxicated() {
@@ -84,10 +90,31 @@ public class Pirate {
   }
 
   public boolean isAlive() {
+    if (!isAlive){
+      System.out.println("He's dead.");
+    }
     return isAlive;
   }
 
   public void setAlive(boolean alive) {
     isAlive = alive;
   }
+
+  public int getToxicLevel() {
+    return toxicLevel;
+  }
+
+  public void setToxicLevel(int toxicLevel) {
+
+    if (isAlive()){
+
+      if (toxicLevel < 5){
+        this.toxicLevel = toxicLevel;
+      } else {
+        this.toxicLevel = toxicLevel;
+        setIntoxicated(true);
+      }
+    }
+  }
+
 }
