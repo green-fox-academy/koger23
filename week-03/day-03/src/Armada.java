@@ -72,11 +72,14 @@ public class Armada {
     Ship ship_1 = null;
     Ship ship_2 = null;
 
+    List<Ship> loserThis = new ArrayList<>();
+    List<Ship> loserOther= new ArrayList<>();
+
     while ((getLiveShips() > 0) && (otherArmada.getLiveShips() > 0)){
 
       for (Ship ship : armada){
 
-        if (ship.getCrew().size() > 0){
+        if ((!loserThis.contains(ship)) && (ship.getCrew().size() > 0)){
           ship_1 = ship;
           break;
         }
@@ -84,13 +87,21 @@ public class Armada {
 
       for (Ship ship : otherArmada.getArmada()){
 
-        if (ship.getCrew().size() > 0){
+        if ((!loserOther.contains(ship)) && (ship.getCrew().size() > 0)){
           ship_2 = ship;
           break;
         }
       }
 
-      ship_1.battle(ship_2);
+      if (ship_1.battle(ship_2)){
+        loserOther.add(ship_2);
+      } else {
+        loserThis.add(ship_1);
+      }
+
+      if ((loserOther.size() == otherArmada.getArmada().size()) || (loserThis.size() == getArmada().size())){
+        break;
+      }
 
     }
 
