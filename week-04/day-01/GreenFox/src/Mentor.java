@@ -9,7 +9,7 @@ public class Mentor {
   }
 
   public void getGoal(){
-    System.out.println("Educate brilliant junior software developers.");
+    System.out.println("My goal is: Educate brilliant junior software developers.");
   }
 
   public Mentor(){
