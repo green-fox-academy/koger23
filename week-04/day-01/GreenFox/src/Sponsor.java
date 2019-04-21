@@ -13,6 +13,10 @@ public class Sponsor {
     System.out.println("Hire brilliant junior software developers.");
   }
 
+  public void hire(){
+    this.hiredStudents++;
+  }
+
   public Sponsor(){
     this("Jane Doe", 30, "female", "Google");
     this.hiredStudents = 0;
