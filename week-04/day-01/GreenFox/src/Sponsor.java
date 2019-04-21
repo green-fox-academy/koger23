@@ -14,12 +14,15 @@ public class Sponsor {
   }
 
   public Sponsor(){
-    this("Jane Doe", 30, "female");
+    this("Jane Doe", 30, "female", "Google");
+    this.hiredStudents = 0;
   }
 
-  public Sponsor(String name, int age, String gender) {
+  public Sponsor(String name, int age, String gender, String company) {
     this.name = name;
     this.age = age;
     this.gender = gender;
+    this.company = company;
+    this.hiredStudents = 0;
   }
 }
