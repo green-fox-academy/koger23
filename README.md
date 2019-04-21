@@ -9,5 +9,6 @@
 * [git-lesson-repository](https://github.com/koger23/git-lesson-repository)
 * [TodoApp](https://github.com/green-fox-academy/koger23-todo-app)
 
-## Otters-links:
-* [Otters' Syllabus](https://github.com/green-fox-academy/otters-syllabus)
+## Important links:
+* [Wiki](https://github.com/green-fox-academy/koger23/wiki) - collection of my repos with description
+* [Otters' Syllabus](https://github.com/green-fox-academy/otters-syllabus) - syllabus of Java class 2019S01
