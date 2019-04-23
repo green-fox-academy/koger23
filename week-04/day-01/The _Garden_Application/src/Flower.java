@@ -3,8 +3,9 @@ public class Flower extends Plant {
   private final double ABSORB_EFFICIENCY = 0.75;
   private final int WATER_ALARM_LEVEL = 5;
 
-  public Flower() {
+  public Flower(String color) {
     super();
+    super.setColor(color);
     this.setName(NAME);
     this.setAbsorbEffiecency(ABSORB_EFFICIENCY);
     this.setWater_alarm_level(WATER_ALARM_LEVEL);
