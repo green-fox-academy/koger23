@@ -14,6 +14,18 @@ public class Carrier {
     this.healthPoints = healthPoints;
   }
 
+  public int getHealthPoints(){
+    return healthPoints;
+  }
+
+  public void setHealthPoints(int healthPoints){
+    if (healthPoints > getHealthPoints()){
+      this.healthPoints = 0;
+    } else {
+      this.healthPoints = healthPoints;
+    }
+  }
+
   public void add(Aircrafts aircraft) {
     aircrafts.add(aircraft);
   }
@@ -52,5 +64,14 @@ public class Carrier {
       need += aircrafts.get(index).getMaxAmmo();
     }
     return need;
+  }
+
+  public void fight(Carrier anotherCarrier){
+    int totalDamage = 0;
+    for (Aircrafts aircraft : aircrafts){
+      aircraft.fight();
+      totalDamage += aircraft.getMaxAmmo() * aircraft.getBaseDamage();
+    }
+    anotherCarrier.setHealthPoints(anotherCarrier.getHealthPoints() - totalDamage);
   }
 }
