@@ -5,12 +5,12 @@ public class Test {
     Carrier cary3 = new Carrier(400, 3000);
 
     for (int i = 0; i < 3; i++){
-      cary1.add(new Aircrafts("F16", 8, 30));
-      cary1.add(new Aircrafts("F35", 12, 50));
-      cary2.add(new Aircrafts("F16", 8, 30));
-      cary2.add(new Aircrafts("F35", 12, 50));
-      cary3.add(new Aircrafts("F16", 8, 30));
-      cary3.add(new Aircrafts("F35", 12, 50));
+      cary1.add(new F35());
+      cary1.add(new F16());
+      cary2.add(new F35());
+      cary2.add(new F16());
+      cary3.add(new F35());
+      cary3.add(new F16());
     }
     System.out.println("<<<<<<<< 1st BATTLE >>>>>>>>\n");
     cary1.fight(cary2);
