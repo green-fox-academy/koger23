@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Garden {
-  List<Plant> plants = new ArrayList<>();
+  private List<Plant> plants = new ArrayList<>();
 
   public void addPlant(Plant plant) {
     plants.add(plant);
@@ -27,6 +27,11 @@ public class Garden {
 
     for (Integer index : mustWater) {
       plants.get(index).watering((int) waterForEach);
+    }
+  }
+  public void printPlants(){
+    for (Plant plant : plants){
+      plant.printStatus();
     }
   }
 }
