@@ -47,4 +47,11 @@ public class Plant {
   }
   public Plant(){
   }
+  public void printStatus(){
+    if (getWaterLevel() < getWater_alarm_level()) {
+      System.out.println("The " + getColor() + " " + getName() + " needs water");
+    } else {
+      System.out.println("The " + getColor() + " " + getName() + " doesn't need water");
+    }
+  }
 }
