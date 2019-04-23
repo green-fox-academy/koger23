@@ -36,8 +36,13 @@ public class Aircrafts {
     }
   }
 
+  public String status(){
+    String returnString = "Type: " + getType() + ", Ammo: " + getMaxAmmo() + ", Damage: " + getBaseDamage() + ", All Damage: " + getMaxAmmo() * getBaseDamage();
+    return returnString;
+  }
+
   public void getStatus(){
-    System.out.println("Type: " + getType() + ", Ammo: " + getMaxAmmo() + ", Damage: " + getBaseDamage() + ", All Damage: " + getMaxAmmo() * getBaseDamage());
+    System.out.println(status());
   }
 
   public String getType() {
