@@ -38,10 +38,10 @@ public class Plant {
   public void setWater_alarm_level(int water_alarm_level) {
     this.water_alarm_level = water_alarm_level;
   }
-  public Plant(String name, String color, double waterLevel, double absorbEffiecency, int water_alarm_level) {
+  public Plant(String name, String color, double absorbEffiecency, int water_alarm_level) {
     this.name = name;
     this.color = color;
-    this.waterLevel = waterLevel;
+    this.waterLevel = 0;
     this.absorbEffiecency = absorbEffiecency;
     this.water_alarm_level = water_alarm_level;
   }
