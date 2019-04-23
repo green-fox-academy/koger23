@@ -19,6 +19,14 @@ public class Aircrafts {
     return plusAmmo - ammoLevel;
   }
 
+  public boolean isPriority(){
+    if (getType().equals("F16")){
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   public void getStatus(){
     System.out.println("Type: " + getType() + ", Ammo: " + getMaxAmmo() + ", Damage: " + getBaseDamage() + ", All Damage: " + getMaxAmmo() * getBaseDamage());
   }
