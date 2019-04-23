@@ -1,4 +1,4 @@
-public class Flower extends Plant{
+public class Flower extends Plant {
   final private String NAME = "Flower";
   private final double ABSORB_EFFICIENCY = 0.75;
   private final int WATER_ALARM_LEVEL = 5;
