@@ -1,5 +1,5 @@
 public class Flower {
-  private String name;
+  final private String NAME = "Flower";
   private String color;
   private double waterLevel;
   private final double ABSORB_EFFICIENCY = 0.75;
@@ -10,10 +10,7 @@ public class Flower {
   }
 
   public String getName() {
-    return name;
-  }
-  public void setName(String name) {
-    this.name = name;
+    return NAME;
   }
   public String getColor() {
     return color;
