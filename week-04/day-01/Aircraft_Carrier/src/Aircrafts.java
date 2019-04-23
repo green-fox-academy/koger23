@@ -4,6 +4,15 @@ public class Aircrafts {
   private int baseDamage;
   private int ammoLevel;
 
+  public Aircrafts(){
+  }
+
+  public Aircrafts(String type, int maxAmmo, int baseDamage) {
+    this.type = type;
+    this.maxAmmo = maxAmmo;
+    this.baseDamage = baseDamage;
+  }
+
   public int fight() {
     int damage = baseDamage * ammoLevel;
     this.ammoLevel = 0;
