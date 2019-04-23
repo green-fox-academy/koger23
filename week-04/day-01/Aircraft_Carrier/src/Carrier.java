@@ -6,7 +6,7 @@ public class Carrier {
   int ammoStorage;
   int healthPoints;
 
-  public Carrier(){
+  public Carrier() {
   }
 
   public Carrier(int ammoStorage, int healthPoints) {
@@ -14,12 +14,20 @@ public class Carrier {
     this.healthPoints = healthPoints;
   }
 
-  public int getHealthPoints(){
+  public int getAmmoStorage() {
+    return ammoStorage;
+  }
+
+  public void setAmmoStorage(int ammo) {
+    this.ammoStorage = ammo;
+  }
+
+  public int getHealthPoints() {
     return healthPoints;
   }
 
-  public void setHealthPoints(int healthPoints){
-    if (healthPoints > getHealthPoints()){
+  public void setHealthPoints(int healthPoints) {
+    if (healthPoints > getHealthPoints()) {
       this.healthPoints = 0;
     } else {
       this.healthPoints = healthPoints;
@@ -32,13 +40,13 @@ public class Carrier {
 
   public void fill() {
     if (ammoStorage > 0) {
-      if (getAmmoNeed() <= ammoStorage){
-        for (int index : getMustRefillAircrafts()){
+      if (getAmmoNeed() <= ammoStorage) {
+        for (int index : getMustRefillAircrafts()) {
           ammoStorage = aircrafts.get(index).refill(ammoStorage);
         }
       } else {
-        for (int index : getMustRefillAircrafts()){
-          if (aircrafts.get(index).isPriority()){
+        for (int index : getMustRefillAircrafts()) {
+          if (aircrafts.get(index).isPriority()) {
             ammoStorage = aircrafts.get(index).refill(ammoStorage);
           }
         }
@@ -58,20 +66,40 @@ public class Carrier {
     return mustRefill;
   }
 
-  public int getAmmoNeed(){
+  public int getAmmoNeed() {
     int need = 0;
-    for (int index : getMustRefillAircrafts()){
+    for (int index : getMustRefillAircrafts()) {
       need += aircrafts.get(index).getMaxAmmo();
     }
     return need;
   }
 
-  public void fight(Carrier anotherCarrier){
+  public void fight(Carrier anotherCarrier) {
+    anotherCarrier.setHealthPoints(anotherCarrier.getHealthPoints() - getTotalDamage());
+  }
+
+  public int getTotalDamage() {
     int totalDamage = 0;
-    for (Aircrafts aircraft : aircrafts){
+    for (Aircrafts aircraft : aircrafts) {
       aircraft.fight();
       totalDamage += aircraft.getMaxAmmo() * aircraft.getBaseDamage();
     }
-    anotherCarrier.setHealthPoints(anotherCarrier.getHealthPoints() - totalDamage);
+    return totalDamage;
+  }
+
+  public String getStatus() {
+    String returnString = "";
+    if (getHealthPoints() > 0) {
+      String row1 = "HP: " + getHealthPoints() + ", Aircraft count: " + aircrafts.size() + ", Ammo Storage: " + getAmmoStorage() + ", Total damage: " + getTotalDamage() + "\n";
+      String row2 = "Aircrafts:\n";
+      String row3 = "";
+      for (Aircrafts aircraft : aircrafts) {
+        row3 += aircraft.status() + "\n";
+      }
+      returnString = row1 + row2 + row3;
+    } else {
+      returnString = "It's dead Jim :(";
+    }
+    return returnString;
   }
 }
