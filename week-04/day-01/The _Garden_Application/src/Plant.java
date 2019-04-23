@@ -5,7 +5,7 @@ public class Plant {
   private double absorbEffiecency;
   private int water_alarm_level;
 
-  public void watering(int waterAmount){
+  public void watering(int waterAmount) {
     this.waterLevel += waterAmount * getAbsorbEffiecency();
   }
   public String getName() {
@@ -45,9 +45,9 @@ public class Plant {
     this.absorbEffiecency = absorbEffiecency;
     this.water_alarm_level = water_alarm_level;
   }
-  public Plant(){
+  public Plant() {
   }
-  public void printStatus(){
+  public void printStatus() {
     if (getWaterLevel() < getWater_alarm_level()) {
       System.out.println("The " + getColor() + " " + getName() + " needs water");
     } else {
