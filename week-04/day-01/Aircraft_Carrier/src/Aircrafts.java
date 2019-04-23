@@ -19,6 +19,10 @@ public class Aircrafts {
     return plusAmmo - ammoLevel;
   }
 
+  public void getStatus(){
+    System.out.println("Type: " + getType() + ", Ammo: " + getMaxAmmo() + ", Damage: " + getBaseDamage() + ", All Damage: " + getMaxAmmo() * getBaseDamage());
+  }
+
   public String getType() {
     return type;
   }
