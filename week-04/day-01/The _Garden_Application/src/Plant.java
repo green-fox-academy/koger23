@@ -47,8 +47,11 @@ public class Plant {
   }
   public Plant() {
   }
+  public boolean needWater(){
+    return getWaterLevel() < getWater_alarm_level();
+  }
   public void printStatus() {
-    if (getWaterLevel() < getWater_alarm_level()) {
+    if (needWater()) {
       System.out.println("The " + getColor() + " " + getName() + " needs water");
     } else {
       System.out.println("The " + getColor() + " " + getName() + " doesn't need water");
