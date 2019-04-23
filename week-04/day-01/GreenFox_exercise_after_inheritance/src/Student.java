@@ -3,7 +3,7 @@ public class Student extends Person {
   public int skippedDays;
 
   public void introduce(){
-    System.out.println( "Hi, I'm " + name + ", a " + age + " year old " + gender + "from " + previousOrganization + " who skipped " + skippedDays + ".");
+    System.out.println( "Hi, I'm " + name + ", a " + age + " year old " + gender + " from " + previousOrganization + " who skipped " + skippedDays + ".");
   }
 
   public void getGoal(){
