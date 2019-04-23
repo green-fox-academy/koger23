@@ -1,5 +1,5 @@
 public class Aircrafts {
-  private String name;
+  private String type;
   private int maxAmmo;
   private int baseDamage;
   private int ammoLevel;
