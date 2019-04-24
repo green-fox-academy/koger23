@@ -4,7 +4,7 @@ public class Bird extends Animal {
   public Bird(String name) {
     super.setName(name);
   }
-  String breed() {
+  public String breed() {
     return "laying eggs";
   }
 }
