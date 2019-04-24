@@ -1,4 +1,4 @@
 package main.java.music;
 
-public class StringedInstrument {
+public abstract class StringedInstrument extends Instrument{
 }
