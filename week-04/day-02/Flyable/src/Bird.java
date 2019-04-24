@@ -6,15 +6,12 @@ public class Bird extends Animal implements Flyable {
     return "laying eggs";
   }
 
-  @Override
   public void land() {
   }
 
-  @Override
   public void fly() {
   }
 
-  @Override
   public void takeOff() {
   }
 }
