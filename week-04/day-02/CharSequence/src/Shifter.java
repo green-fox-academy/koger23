@@ -1,21 +1,21 @@
 public class Shifter implements CharSequence {
   String stringToBeShifted;
-  int shiftIndex;
+  int shift;
 
-  public Shifter(String stringToBeShifted, int shiftIndex) {
+  public Shifter(String stringToBeShifted, int shift) {
+    this.shift = shift;
     this.stringToBeShifted = stringToBeShifted;
-    this.shiftIndex = shiftIndex;
   }
 
   public int length() {
-    return 0;
+    return stringToBeShifted.length();
   }
 
   public char charAt(int i) {
-    return 0;
+    return stringToBeShifted.charAt(i + shift);
   }
 
   public CharSequence subSequence(int i, int i1) {
-    return null;
+    return stringToBeShifted.subSequence(i + shift, i1 + shift);
   }
 }
