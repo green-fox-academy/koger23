@@ -14,7 +14,7 @@ public class SumTest {
   Sum sumObj;
 
   @Before
-  public void setup(){
+  public void setup() {
     sumObj = new Sum();
   }
 
@@ -29,10 +29,8 @@ public class SumTest {
     intList.add(7);
     intList.add(8);
     intList.add(9);
-
     int actual = sumObj.sum(intList);
     int expect = 40;
-
     assertEquals(expect, actual);
 
   }
@@ -41,10 +39,16 @@ public class SumTest {
   public void sumOne() {
     ArrayList<Integer> intList = new ArrayList<>();
     intList.add(11);
-
     int actual = sumObj.sum(intList);
     int expect = 11;
+    assertEquals(expect, actual);
+  }
 
+  @Test
+  public void sumEmpty() {
+    ArrayList<Integer> intList = new ArrayList<>();
+    int actual = sumObj.sum(intList);
+    int expect = 0;
     assertEquals(expect, actual);
   }
 }
