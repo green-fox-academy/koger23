@@ -55,6 +55,10 @@ public class CowsAndBulls {
     this.state = word;
   }
 
+  public String getState() {
+    return state;
+  }
+
   public String checkCows(int inputNumber){
     int cows = 0;
     int bulls = 0;
