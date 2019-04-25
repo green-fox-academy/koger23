@@ -23,4 +23,14 @@ public class CowsAndBullsTest {
 
     assertTrue(String.valueOf(initNumber).length() == 4);
   }
+
+  @Test
+  public void setState() {
+    String expect = "playing";
+    assertEquals(expect, cab.getState());
+
+    expect = "isitwork?";
+    cab.setState(expect);
+    assertEquals(expect, cab.getState());
+  }
 }
