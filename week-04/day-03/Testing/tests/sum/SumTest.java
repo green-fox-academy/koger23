@@ -36,4 +36,15 @@ public class SumTest {
     assertEquals(expect, actual);
 
   }
+
+  @Test
+  public void sumOne() {
+    ArrayList<Integer> intList = new ArrayList<>();
+    intList.add(11);
+
+    int actual = sumObj.sum(intList);
+    int expect = 11;
+
+    assertEquals(expect, actual);
+  }
 }
