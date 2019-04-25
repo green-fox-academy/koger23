@@ -6,7 +6,7 @@ import java.util.Map;
 public class CountLetters {
   Map<String, Integer> dic = new HashMap();
 
-  public void count(String word){
+  public Map count(String word){
     char[] charList = word.toCharArray();
 
     for (char c : charList){
@@ -17,6 +17,7 @@ public class CountLetters {
         dic.put(String.valueOf(c), 0);
       }
     }
+    return dic;
   }
 
   public boolean checkDic(char c){
