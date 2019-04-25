@@ -22,7 +22,7 @@ public class CowsAndBulls {
     return (int) (Math.random() * 8999 + 1000);
   }
 
-  public String guess() {
+  public void guess() {
     int userInput;
     scanner = new Scanner(System.in);
     System.out.print("Guess the four digit number: ");
@@ -40,7 +40,6 @@ public class CowsAndBulls {
     }
     System.out.println("You won! :)");
     setState(FINISHED);
-    return "";
   }
 
   public int askNumber(){
