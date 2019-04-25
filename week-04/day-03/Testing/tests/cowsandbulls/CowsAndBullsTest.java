@@ -33,4 +33,24 @@ public class CowsAndBullsTest {
     cab.setState(expect);
     assertEquals(expect, cab.getState());
   }
+
+  @Test
+  public void isValidNumberTrue(){
+    int expect = 7898;
+
+    boolean result = cab.isValidNumber(expect);
+
+    assertTrue(result);
+
+  }
+
+  @Test
+  public void isValidNumberFalse(){
+    int expect = 789;
+
+    boolean result = cab.isValidNumber(expect);
+
+    assertFalse(result);
+
+  }
 }
