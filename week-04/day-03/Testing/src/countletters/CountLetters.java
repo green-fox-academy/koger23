@@ -10,17 +10,18 @@ public class CountLetters {
     char[] charList = word.toCharArray();
 
     for (char c : charList){
-      if (checkDic(c)){
-        int prevVal = dic.get(c);
-        dic.put(String.valueOf(c), prevVal + 1);
+      String curString = String.valueOf(c);
+      if (checkDic(curString)){
+        int prevVal = dic.get(curString);
+        dic.put(curString, prevVal + 1);
       } else {
-        dic.put(String.valueOf(c), 0);
+        dic.put(curString, 1);
       }
     }
     return dic;
   }
 
-  public boolean checkDic(char c){
+  public boolean checkDic(String c){
     if (dic.containsKey(c)){
       return true;
     } else {
