@@ -1,6 +1,7 @@
 package exercise.extension;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -8,17 +9,21 @@ import java.util.List;
  */
 public class Extension {
   int add(int a, int b) {
-    return 5;
+    return a + b;
   }
 
   int maxOfThree(int a, int b, int c) {
-    if (a > b)
+    if ((a > b) && (a > c)) {
       return a;
-    else
+    } else if ((c > b) && (c > a)){
       return c;
+    } else {
+      return b;
+    }
   }
 
   int median(List<Integer> pool) {
+    Collections.sort(pool);
     return pool.get((pool.size()-1)/2);
   }
 
