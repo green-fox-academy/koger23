@@ -28,7 +28,6 @@ public class CowsAndBulls {
     System.out.print("Guess the four digit number: ");
     userInput = askNumber();
     isValidNumber(userInput);
-    System.out.println(checkCows(userInput));
 
     while (fourDigitNumber != userInput) {
       System.out.println(guessCounter + ".: " + userInput);
