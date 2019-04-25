@@ -21,4 +21,13 @@ public class FibonacciTest {
 
     assertEquals(expected, result);
   }
+
+  @Test
+  public void fibonacciNumsMinus() {
+    int elementN = -1;
+    int expected = 3;
+    int result = fibo.fibonacciNums(elementN);
+
+    assertEquals(expected, result);
+  }
 }
