@@ -5,14 +5,7 @@ import java.util.Arrays;
 
 
 public class Anagram {
-  public Anagram() {
-  }
-
-  public static void main(String[] args) {
-    System.out.println(anagram("green-fox", "foxgreen"));
-  }
-
-  private static boolean anagram(String input1, String input2) {
+  public static boolean anagram(String input1, String input2) {
     // removing unnecessary elements
     input1 = input1.replaceAll(" ", "").replaceAll("-", "");
     input2 = input2.replaceAll(" ", "").replaceAll("-", "");
