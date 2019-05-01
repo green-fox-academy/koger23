@@ -10,6 +10,10 @@
 * [TodoApp](https://github.com/green-fox-academy/koger23-todo-app)
 * [The Wanderer Game](https://github.com/koger23/wanderer-java)
 
+##### Exams:
+* [Trial Exam: Programming Basics](https://github.com/koger23/exam-trial-basics)
+* [Foundation Example Exam](https://github.com/koger23/foundation-example-exam)
+
 ## Important links:
 * [Wiki](https://github.com/green-fox-academy/koger23/wiki) - collection of my repos with description
 * [Otters' Syllabus](https://github.com/green-fox-academy/otters-syllabus) - syllabus of Java class 2019S01
