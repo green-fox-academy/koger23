@@ -14,7 +14,7 @@ public class Exercise10 {
 
     Fox fox1 = new Fox("Mr.GreenFox", 12, "green");
     foxes.add(fox1);
-    Fox fox2 = new Fox("Mrs.GreenFox", 11, "green");
+    Fox fox2 = new Fox("Mrs.GreenFox", 4, "green");
     foxes.add(fox2);
     Fox fox3 = new Fox("Miss BrownFox", 7, "brow");
     foxes.add(fox3);
@@ -26,11 +26,19 @@ public class Exercise10 {
     foxes.add(fox6);
 
     getGreenFoxes(foxes);
+    getGreenFoxesLessThan5Years(foxes);
   }
 
   public static void getGreenFoxes(List<Fox> foxes) {
     foxes.stream()
-            .filter(f -> f.getColor() == "green")
+            .filter(f -> f.getColor().equals("green"))
+            .forEach(f -> System.out.println(f.getName()));
+  }
+
+  public static void getGreenFoxesLessThan5Years(List<Fox> foxes) {
+    foxes.stream()
+            .filter(f -> f.getColor().equals("green"))
+            .filter(f -> f.getAge() < 5)
             .forEach(f -> System.out.println(f.getName()));
   }
 }
