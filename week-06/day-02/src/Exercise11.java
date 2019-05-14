@@ -1,14 +1,10 @@
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.*;
-import java.util.function.Consumer;
-import java.util.function.Function;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
-
-import static java.util.stream.Collectors.counting;
-import static java.util.stream.Collectors.groupingBy;
 
 public class Exercise11 {
   /*
@@ -18,7 +14,6 @@ public class Exercise11 {
    * something like this:
    * */
   public static void main(String[] args) {
-
     try {
       Files.readAllLines(Paths.get("assets/wiki.txt")).stream()
               .flatMap(charSequence -> Pattern.compile(" ").splitAsStream(charSequence))
@@ -43,16 +38,8 @@ public class Exercise11 {
               .stream()
               .forEach(k -> System.out.println(k.getKey() + ": " + k.getValue()));
 
-//      System.out.println(map);
-
     } catch (IOException e) {
       e.printStackTrace();
-    }
-  }
-
-  public static void printMap(Map<String, Integer> map) {
-    for (String key : map.keySet()) {
-      System.out.println(key + ": " + map.get(key));
     }
   }
 }
