@@ -21,8 +21,10 @@ public class Exercise11 {
               .flatMap(charSequence -> Pattern.compile("\\[").splitAsStream(charSequence))
               .flatMap(charSequence -> Pattern.compile("]").splitAsStream(charSequence))
               .collect(Collectors.toMap(k -> {
-                        if (k.endsWith(".") || k.endsWith(",") || k.endsWith(".\n") || k.endsWith(",\n")) {
+                        if (k.endsWith(". ") || k.endsWith(", ") || k.endsWith(".\n") || k.endsWith(",\n")) {
                           return k.substring(0, k.length() - 2);
+                        } else if (k.endsWith("?") || k.endsWith(",") || k.endsWith(".") || k.endsWith("!")|| k.endsWith(":")) {
+                          return k.substring(0, k.length() - 1);
                         } else {
                           return k;
                         }
