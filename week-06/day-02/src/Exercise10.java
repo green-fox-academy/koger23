@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Exercise10 {
   /*
@@ -27,6 +29,7 @@ public class Exercise10 {
 
     getGreenFoxes(foxes);
     getGreenFoxesLessThan5Years(foxes);
+    getColorFrequencyOfFoxes(foxes);
   }
 
   public static void getGreenFoxes(List<Fox> foxes) {
@@ -40,5 +43,11 @@ public class Exercise10 {
             .filter(f -> f.getColor().equals("green"))
             .filter(f -> f.getAge() < 5)
             .forEach(f -> System.out.println(f.getName()));
+  }
+
+  public static void getColorFrequencyOfFoxes(List<Fox> foxes) {
+    Map<String, Integer> occurrenceMap = foxes.stream()
+            .collect(Collectors.toMap(Fox::getColor, v -> 1, Integer::sum));
+    System.out.println(occurrenceMap);
   }
 }
