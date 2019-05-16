@@ -5,7 +5,7 @@ public class SWCharacter {
   private String hairColour;
   private String skinColour;
   private String eyeColour;
-  private String birthYear;
+  private Double birthYear;
   private String gender;
   private boolean hasHeight;
   private boolean hasMass;
@@ -18,7 +18,7 @@ public class SWCharacter {
   public SWCharacter() {
   }
 
-  public SWCharacter(String name, Double height, Double mass, String hairColour, String skinColour, String eyeColour, String birthYear, String gender) {
+  public SWCharacter(String name, Double height, Double mass, String hairColour, String skinColour, String eyeColour, Double birthYear, String gender) {
     this.name = name;
     this.height = height;
     this.mass = mass;
@@ -77,11 +77,11 @@ public class SWCharacter {
     this.eyeColour = eyeColour;
   }
 
-  public String getBirthYear() {
+  public Double getBirthYear() {
     return birthYear;
   }
 
-  public void setBirthYear(String birthYear) {
+  public void setBirthYear(Double birthYear) {
     this.birthYear = birthYear;
   }
 
@@ -154,5 +154,15 @@ public class SWCharacter {
 
   public void setHasGender(boolean hasGender) {
     this.hasGender = hasGender;
+  }
+
+  public String getAgeGroup() {
+    if (this.birthYear < 21) {
+      return "below 21";
+    } else if (this.birthYear > 21 && this.birthYear < 40) {
+      return "between 21 and 40";
+    } else {
+      return "above 40";
+    }
   }
 }
