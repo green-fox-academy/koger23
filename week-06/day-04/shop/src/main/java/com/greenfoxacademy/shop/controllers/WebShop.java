@@ -105,8 +105,8 @@ public class WebShop {
   public List<ShopItem> searchItems(String text) {
     return shopItemList.stream()
             .filter(items -> {
-              CharSequence searchText = text;
-              if (items.getName().contains(searchText) || items.getDescription().contains(searchText)) {
+              CharSequence searchText = text.toLowerCase();
+              if (items.getName().toLowerCase().contains(searchText) || items.getDescription().toLowerCase().contains(searchText)) {
                 return true;
               } else {
                 return false;
