@@ -65,35 +65,7 @@ td {
     font-weight: bold;
 }
 
-.search-field-button {
-    display: flex;
-    align-items: baseline;
-}
-
-#search_input {
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    font-size: large;
-    height: 40px;
-    margin: 0px;
-    width: 90%;
-}
-
-.search-label {
-    color: #F44336;
-}
-
 #btn_search {
-    height: 40px;
-    width: 10%;
-    margin: 0px 0px 0px 15px;
-}
-
-.search {
-    margin: 10px 0px 10px 0px;
-}
-
-.search-field-button {
-    margin: 3px 0px 10px 0px;
+    height: 60px;
+    width: 120px;
 }

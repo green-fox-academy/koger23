@@ -1,10 +1,13 @@
 package com.greenfoxacademy.shop.items;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ShopItem {
-  private String name;
-  private String description;
-  private Double price;
-  private int quantity;
+  String name;
+  String description;
+  Double price;
+  int quantity;
 
   public ShopItem() {
   }
@@ -46,5 +49,11 @@ public class ShopItem {
 
   public void setQuantity(int quantity) {
     this.quantity = quantity;
+  }
+
+  public List<ShopItem> toList() {
+    List<ShopItem> shopItemList = new ArrayList<>();
+    shopItemList.add(this);
+    return shopItemList;
   }
 }
