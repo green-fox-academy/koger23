@@ -2,12 +2,17 @@ body {
     width: 800px;
 }
 
-.title, p {
+.title {
     color: #00BCD4;
     font-size: 40px;
     margin: 0px;
     padding: 0px;
 }
+
+a:link, a:visited {
+    color: #00BCD4;
+    text-decoration: none;
+  }
 
 hr {
     color: #00BCD4;
