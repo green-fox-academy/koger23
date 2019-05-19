@@ -1,0 +1,102 @@
+:root {
+  --button-bg-color: #000000;
+  --button-fg-color: #FFFFFF;
+  --button-min-height: 50px;
+  --button-radius: 8px;
+  --table-header-fg-color: #FFFFFF;
+  --table-header-bg-color: #515151;
+}
+
+* {
+  align-content: center;
+  align-items: center;
+}
+
+
+body {
+    display: block;
+    min-width: 540px;
+    margin: 0px auto;
+    max-width: 1000px;
+}
+
+.title {
+  font-size: 40px;
+  margin: 0px;
+  padding: 0px;
+}
+
+#home_link:link, #home_link:visited {
+  color: var(--title-color);
+  text-decoration: none;
+  }
+
+.body-head {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.login_or_register {
+  display: block;
+}
+
+.form {
+  flex-direction: column;
+  align-items: center;
+}
+
+.form label, input, button {
+  width: 100%;
+  margin: 5px;
+}
+
+label {
+  font-size: 16px;
+}
+
+input {
+    border-radius: 3px;
+    border: 1px solid #E2E2E2E2;
+    box-shadow: 1px;
+    padding: 15px 5px 15px 5px;
+}
+
+input:focus {
+    outline: 2px solid #7EA576;
+    outline-style: auto;
+    -moz-outline-radius: 2px;
+}
+
+button {
+    background-color: var(--button-bg-color);
+    border: none;
+    -webkit-border-radius: var(--button-radius);
+    -moz-border-radius: var(--button-radius);
+    border-radius: var(--button-radius);
+    color: var(--button-fg-color);
+    font-size: 16px;
+    font-weight: bold;
+    margin: 5px 5px 5px 5px;
+    min-height: var(--button-min-height);
+    padding: 7px 5px 7px 5px;
+}
+
+
+table {
+    display: block;
+    align-items: center;
+    width: 100%;
+    margin-top: 50px;
+}
+
+th {
+    background-color: var(--table-header-bg-color);
+    color: var(--table-header-fg-color);
+    min-width: 100px;
+    padding: 15px;
+}
+
+td {
+    padding: 5px 5px 5px 10px;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add item to My Shop</title>
+    <link rel="stylesheet" href="/additem-styles.css">
+</head>
+<body>
+    <div class="body-head">
+        <div class="title">
+            <a id="home_link" href="/webshop">My Shop</a>
+        </div>
+        <div class="login_or_register">
+            <div class="login">
+                <p>Logged in as admin</p>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="div-form">
+        <form class="form" method="post" onclick="location.href='/webshop/additem'">
+            <label for="name">Name:</label>
+            <input id="name" type="text" required>
+            <label for="description">Description:</label>
+            <input id="description" type="text" required>
+            <label for="price">Price:</label>
+            <input id="price" type="text" required>
+            <label for="quantity">Quantity:</label>
+            <input id="quantity" type="text" required>
+            <button onclick="" type="submit">Add</button>
+        </form>
+    </div>
+    <div class="table">
+        <table>
+            <thead>
+            <th width="25%">Name</th>
+            <th width="30%">Description</th>
+            <th width="30%">Price (€)</th>
+            <th width="15%">Quantity of stock</th>
+            </thead>
+            <tbody>
+            <tr th:each="items : ${items}">
+                <td th:text="${items.getName()}"></td>
+                <td th:text="${items.getDescription()}"></td>
+                <td th:text="${items.getPrice()}"></td>
+                <td th:text="${items.getQuantity()}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
