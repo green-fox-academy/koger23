@@ -1,27 +1,50 @@
 package com.greenfoxacademy.shop.controllers;
 
+import com.greenfoxacademy.shop.handler.LoginHandler;
 import com.greenfoxacademy.shop.items.ShopItem;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.validation.Valid;
 import java.util.*;
 import java.util.stream.Collectors;
 
 @Controller
 public class WebShop {
+  LoginHandler loginHandler;
   List<ShopItem> shopItemList = new ArrayList<>();
 
   public WebShop() {
     populateList();
+    loginHandler = new LoginHandler();
   }
 
   @RequestMapping("/webshop")
   public String webShop(Model model) {
     model.addAttribute("items", shopItemList);
     return "index";
+  }
+
+  @RequestMapping("/webshop/login")
+  public String login() {
+    return "loginform";
+  }
+
+  @RequestMapping(value="/webshop/admin", method = RequestMethod.POST)
+  public String login(Model model, @RequestParam("username") String userName, @RequestParam("password") String password) {
+    if (!userName.isEmpty()) {
+      if (loginHandler.checkUser(userName, password)) {
+        model.addAttribute("items", shopItemList);
+        return "additem";
+      }
+    }
+    return "loginform";
   }
 
   @RequestMapping(value="/webshop/search", method = RequestMethod.POST)
