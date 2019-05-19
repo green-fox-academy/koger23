@@ -2,9 +2,7 @@ package com.greenfoxacademy.books.controllers;
 
 import com.greenfoxacademy.books.items.Book;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +10,11 @@ import java.util.stream.Collectors;
 
 public class BookController {
   List<Book> books = new ArrayList<>();
+
+  public BookController() {
+    books.add(new Book("Cat's Cradle", "Kurt Vonnegut", 1963));
+    books.add(new Book("Do Androids Dream of Electric Sheep?", "Philip K. Dick", 1968));
+  }
 
   @GetMapping(path = "/books")
   public String showBooks(Model model) {
@@ -57,5 +60,17 @@ public class BookController {
     return books.stream()
             .filter(book -> book.getAuthor().equals(author))
             .collect(Collectors.toList());
+  }
+
+  @GetMapping(path = "/books/add")
+  public String addBookForm(Model model, @ModelAttribute(name="book") Book book) {
+    model.addAttribute("book", book);
+    return "create";
+  }
+
+  @PostMapping(path = "/books/add")
+  public String addBook(@ModelAttribute(name="book") Book book) {
+    books.add(book);
+    return "redirect:/books";
   }
 }
