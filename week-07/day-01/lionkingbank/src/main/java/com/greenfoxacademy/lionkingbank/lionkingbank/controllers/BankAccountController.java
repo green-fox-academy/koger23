@@ -13,4 +13,9 @@ public class BankAccountController {
     model.addAttribute("bankAccount", bankAccount);
     return "account";
   }
+  @GetMapping("/ception")
+  public String ception(Model model) {
+    model.addAttribute("msg", "\"This is an <em>HTML</em> text. <b>Enjoy yourself!</b>\"");
+    return "ception";
+  }
 }
