@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Account</title>
+</head>
+<body>
+    <p>Bank Account</p>
+    <p th:text="|Name: ${bankAccount.getName()}|"></p>
+    <p th:text="|Balance: ${bankAccount.getBalance()} Zebra|"></p>
+    <p th:text="|Type: ${bankAccount.getAnimalType()}|"></p>
+</body>
+</html>
