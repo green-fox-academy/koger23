@@ -12,22 +12,23 @@
         </div>
         <div class="login_or_register">
             <div class="login">
-                <p>Logged in as admin</p>
+                <p>Logged in as admin,</p>
+                <a id="logout" href="/webshop">logout</a>
             </div>
         </div>
     </div>
     <hr>
     <div class="div-form">
-        <form class="form" method="post" onclick="location.href='/webshop/additem'">
+        <form class="form" action="#" th:action="@{/webshop/add}" th:object="${newshopitem}" method="post">
             <label for="name">Name:</label>
-            <input id="name" type="text" required>
+            <input id="name" name="name" type="text" th:field="*{name}" required>
             <label for="description">Description:</label>
-            <input id="description" type="text" required>
+            <input id="description" name="description" type="text" th:field="*{description}" required>
             <label for="price">Price:</label>
-            <input id="price" type="text" required>
+            <input id="price" name="price" type="text" th:field="*{price}" required>
             <label for="quantity">Quantity:</label>
-            <input id="quantity" type="text" required>
-            <button onclick="" type="submit">Add</button>
+            <input id="quantity" name="quantity" type="text" th:field="*{quantity}" required>
+            <button type="submit">Add</button>
         </form>
     </div>
     <div class="table">
@@ -39,11 +40,11 @@
             <th width="15%">Quantity of stock</th>
             </thead>
             <tbody>
-            <tr th:each="items : ${items}">
-                <td th:text="${items.getName()}"></td>
-                <td th:text="${items.getDescription()}"></td>
-                <td th:text="${items.getPrice()}"></td>
-                <td th:text="${items.getQuantity()}"></td>
+            <tr th:each="shopitem : ${items}">
+                <td th:text="${shopitem.getName()}"></td>
+                <td th:text="${shopitem.getDescription()}"></td>
+                <td th:text="${shopitem.getPrice()}"></td>
+                <td th:text="${shopitem.getQuantity()}"></td>
             </tr>
             </tbody>
         </table>

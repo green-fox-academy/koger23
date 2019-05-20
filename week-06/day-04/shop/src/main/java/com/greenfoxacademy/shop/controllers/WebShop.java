@@ -4,15 +4,11 @@ import com.greenfoxacademy.shop.handler.LoginHandler;
 import com.greenfoxacademy.shop.items.ShopItem;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Controller
@@ -41,10 +37,18 @@ public class WebShop {
     if (!userName.isEmpty()) {
       if (loginHandler.checkUser(userName, password)) {
         model.addAttribute("items", shopItemList);
+        model.addAttribute("newshopitem", new ShopItem());
         return "additem";
       }
     }
     return "loginform";
+  }
+
+  @GetMapping("/webshop/added")
+  public String add(Model model) {
+    model.addAttribute("items", shopItemList);
+    model.addAttribute("newshopitem", new ShopItem());
+    return "additem";
   }
 
   @RequestMapping(value="/webshop/search", method = RequestMethod.POST)
@@ -83,6 +87,18 @@ public class WebShop {
   public String mostExpensiveAvailable(Model model) {
     model.addAttribute("items", filterMostExpensiveAvailable());
     return "index";
+  }
+
+  @GetMapping(path = "/webshop/add")
+  public String addBookForm(Model model) {
+    model.addAttribute("newshopitem", new ShopItem());
+    return "newshopitem";
+  }
+
+  @PostMapping(path = "/webshop/add")
+  public String addBook(@ModelAttribute(name="newshopitem") ShopItem shopItem) {
+    shopItemList.add(shopItem);
+    return "redirect:added";
   }
 
   public List<ShopItem> orderByPriceAscending() {
