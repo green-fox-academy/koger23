@@ -5,8 +5,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 public class BankAccountController {
+  List<BankAccount> bankAccountList = new ArrayList<>();
+
   @GetMapping("/show")
   public String show(Model model) {
     BankAccount bankAccount = new BankAccount("Simba", 2000, "lion");
@@ -17,5 +22,20 @@ public class BankAccountController {
   public String ception(Model model) {
     model.addAttribute("msg", "\"This is an <em>HTML</em> text. <b>Enjoy yourself!</b>\"");
     return "ception";
+  }
+
+  @GetMapping("/accountlist")
+  public String showAccounts(Model model) {
+    populateBankAccountList();
+    model.addAttribute("accountList", bankAccountList);
+    return "accountlist";
+  }
+
+  public void populateBankAccountList() {
+    bankAccountList.add(new BankAccount("Simba", 2000, "lion"));
+    bankAccountList.add(new BankAccount("Pumbaa", 3333.33, "boar"));
+    bankAccountList.add(new BankAccount("Timon", 15, "meerkats"));
+    bankAccountList.add(new BankAccount("Mufasa", 111.11, "lion"));
+    bankAccountList.add(new BankAccount("Zazu", 2535.21, "bird"));
   }
 }
