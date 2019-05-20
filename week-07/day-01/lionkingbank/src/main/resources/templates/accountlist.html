@@ -7,10 +7,12 @@
 <body>
     <table>
         <thead>
-            <th width="25%">Index</th>
-            <th width="25%">Name</th>
-            <th width="25%">Balance</th>
-            <th width="25%">Animal Type</th>
+            <th>Index</th>
+            <th>Name</th>
+            <th>Balance</th>
+            <th>Animal Type</th>
+            <th>King</th>
+            <th>Side</th>
         </thead>
         <tbody>
             <tr th:each="account : ${accountList}">
@@ -18,6 +20,12 @@
                 <td th:text="${account.name}"></td>
                 <td th:text="| ${#numbers.formatDecimal(account.balance, 2, 2, 'POINT')} Zebra|"></td>
                 <td th:text="${account.animalType}"></td>
+                <td th:text="${account.king}"></td>
+                <td>
+                    <span th:if="${account.side == false}">Good One</span>
+                    <span th:if="${account.side == true}">Bad Guy</span>
+                </td>
+
             </tr>
         </tbody>
     </table>
