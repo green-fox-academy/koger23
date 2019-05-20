@@ -35,10 +35,10 @@ public class BankAccountController {
   }
 
   public void populateBankAccountList() {
-    bankAccountList.add(new BankAccount("Simba", 2000, "lion"));
-    bankAccountList.add(new BankAccount("Pumbaa", 3333.33, "boar"));
-    bankAccountList.add(new BankAccount("Timon", 15, "meerkats"));
-    bankAccountList.add(new BankAccount("Mufasa", 111.11, "lion"));
-    bankAccountList.add(new BankAccount("Zazu", 2535.21, "bird"));
+    bankAccountList.add(new BankAccount("Simba", 2000, "lion", true, false));
+    bankAccountList.add(new BankAccount("Pumbaa", 3333.33, "boar", false, false));
+    bankAccountList.add(new BankAccount("Timon", 15, "meerkats", false, false));
+    bankAccountList.add(new BankAccount("Mufasa", 111.11, "lion", false, true));
+    bankAccountList.add(new BankAccount("Zazu", 2535.21, "bird", false, false));
   }
 }
