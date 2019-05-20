@@ -1,11 +1,28 @@
 package com.greenfoxacademy.lionkingbank.lionkingbank.models;
 
 public class BankAccount {
-  String name;
-  double balance;
-  String animalType;
+  private String name;
+  private double balance;
+  private String animalType;
+  private boolean king = false;
+  private boolean bad = false;
 
   public BankAccount() {
+  }
+
+  public BankAccount(String name, double balance, String animalType, boolean king, boolean bad) {
+    this.name = name;
+    this.balance = balance;
+    this.animalType = animalType;
+    this.king = king;
+    this.bad = bad;
+  }
+
+  public BankAccount(String name, double balance, String animalType, boolean bad) {
+    this.name = name;
+    this.balance = balance;
+    this.animalType = animalType;
+    this.bad = bad;
   }
 
   public BankAccount(String name, double balance, String animalType) {
@@ -36,5 +53,21 @@ public class BankAccount {
 
   public void setAnimalType(String animalType) {
     this.animalType = animalType;
+  }
+
+  public boolean isKing() {
+    return king;
+  }
+
+  public void setKing(boolean king) {
+    this.king = king;
+  }
+
+  public boolean getSide() {
+    return bad;
+  }
+
+  public void setSide(boolean bad) {
+    this.bad = bad;
   }
 }
