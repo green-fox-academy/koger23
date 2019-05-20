@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Account List</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <th width="30%">Name</th>
+            <th width="30%">Balance</th>
+            <th width="30%">Animal Type</th>
+        </thead>
+        <tbody>
+            <tr th:each="account : ${accountList}">
+                <td th:text="${account.name}"></td>
+                <td th:text="| ${#numbers.formatDecimal(account.balance, 2, 2, 'POINT')} Zebra|"></td>
+                <td th:text="${account.animalType}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
