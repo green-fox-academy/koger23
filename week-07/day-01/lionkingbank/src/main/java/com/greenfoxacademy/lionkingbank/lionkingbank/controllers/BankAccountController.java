@@ -12,6 +12,10 @@ import java.util.List;
 public class BankAccountController {
   List<BankAccount> bankAccountList = new ArrayList<>();
 
+  public BankAccountController() {
+    populateBankAccountList();
+  }
+
   @GetMapping("/show")
   public String show(Model model) {
     BankAccount bankAccount = new BankAccount("Simba", 2000, "lion");
@@ -26,7 +30,6 @@ public class BankAccountController {
 
   @GetMapping("/accountlist")
   public String showAccounts(Model model) {
-    populateBankAccountList();
     model.addAttribute("accountList", bankAccountList);
     return "accountlist";
   }
