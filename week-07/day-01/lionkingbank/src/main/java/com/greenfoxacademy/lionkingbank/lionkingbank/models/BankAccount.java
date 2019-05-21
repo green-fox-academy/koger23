@@ -6,8 +6,10 @@ public class BankAccount {
   private String animalType;
   private boolean king = false;
   private boolean bad = false;
+  private int step;
 
   public BankAccount() {
+    initStep();
   }
 
   public BankAccount(String name, double balance, String animalType, boolean king, boolean bad) {
@@ -16,19 +18,14 @@ public class BankAccount {
     this.animalType = animalType;
     this.king = king;
     this.bad = bad;
-  }
-
-  public BankAccount(String name, double balance, String animalType, boolean bad) {
-    this.name = name;
-    this.balance = balance;
-    this.animalType = animalType;
-    this.bad = bad;
+    initStep();
   }
 
   public BankAccount(String name, double balance, String animalType) {
     this.name = name;
     this.balance = balance;
     this.animalType = animalType;
+    initStep();
   }
 
   public String getName() {
@@ -69,5 +66,29 @@ public class BankAccount {
 
   public void setSide(boolean bad) {
     this.bad = bad;
+  }
+
+  public boolean isBad() {
+    return bad;
+  }
+
+  public void setBad(boolean bad) {
+    this.bad = bad;
+  }
+
+  public int getStep() {
+    return step;
+  }
+
+  public void setStep(int step) {
+    this.step = step;
+  }
+
+  public void initStep() {
+    if (this.king) {
+      step = 100;
+    } else {
+      step = 10;
+    }
   }
 }
