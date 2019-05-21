@@ -30,7 +30,7 @@ public class BankAccountController {
 
   @GetMapping("/accountlist")
   public String showAccounts(Model model) {
-    model.addAttribute("accountList", accountWrapper);
+    model.addAttribute("accountList", accountWrapper.getBalanceList());
     return "accountlist";
   }
 
