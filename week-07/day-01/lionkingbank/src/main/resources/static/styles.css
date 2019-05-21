@@ -1,0 +1,63 @@
+:root {
+    --body-widht: 700px;
+    --button-radius: 2px;
+    --button-bg-color: #000000;
+    --button-fg-color: #FFFFFF;
+    --table-header-bg-color: #000000;
+    --table-header-fg-color: #FFFFFF;
+    --table-even-row-bg-color: #D2D2D2;
+}
+
+body {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+button {
+    border: none;
+    -webkit-border-radius: var(--button-radius);
+    -moz-border-radius: var(--button-radius);
+    border-radius: var(--button-radius);
+    color: var(--button-fg-color);
+    background-color: var(--table-header-bg-color);
+    font-weight: bold;
+}
+
+table {
+    border: none;
+    border-collapse: collapse;
+    margin: 0 auto;
+width: var(--body-widht);
+}
+
+th {
+    color: var(--table-header-fg-color);
+    background-color: var(--table-header-bg-color);
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 20px;
+}
+
+td {
+    padding: 10px 20px;
+}
+
+tr:nth-child(even) {
+    background-color: var(--table-even-row-bg-color);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 700px;
+    margin-bottom: 30px;
+}
+
+.navbar button{
+    height: 40px;
+    font-size: 20px;
+    padding: 10px 30px 10px 30px;
+}
