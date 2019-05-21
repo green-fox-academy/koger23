@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>HTMLception</title>
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
+    <div th:replace="fragments/navigation :: copy"></div>
+
     <p th:utext="${msg}"></p>
     <p th:text="${msg}"></p>
 </body>
