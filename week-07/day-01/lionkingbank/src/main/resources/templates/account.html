@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Account</title>
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
+    <div th:replace="fragments/navigation :: copy"></div>
+
     <p>Bank Account</p>
     <p th:text="|Name: ${bankAccount.getName()}|"></p>
     <p th:text="|Balance: ${#numbers.formatDecimal(bankAccount.getBalance(),2,2, 'POINT')} Zebra|"></p>
     <p th:text="|Type: ${bankAccount.getAnimalType()}|"></p>
 </body>
 </html>
-
-"${#numbers.formatDecimal(abc.value, 0, 'COMMA', 2, 'POINT')}"
