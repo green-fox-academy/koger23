@@ -1,18 +1,18 @@
 package com.greenfoxacademy.lionkingbank.lionkingbank.controllers;
 
+import com.greenfoxacademy.lionkingbank.lionkingbank.models.AccountWrapper;
 import com.greenfoxacademy.lionkingbank.lionkingbank.models.BankAccount;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-
-import java.util.ArrayList;
-import java.util.List;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class BankAccountController {
-  List<BankAccount> bankAccountList = new ArrayList<>();
+//  List<BankAccount> bankAccountList = new ArrayList<>();
+  AccountWrapper accountWrapper;
 
   public BankAccountController() {
+    accountWrapper = new AccountWrapper();
     populateBankAccountList();
   }
 
@@ -30,15 +30,32 @@ public class BankAccountController {
 
   @GetMapping("/accountlist")
   public String showAccounts(Model model) {
-    model.addAttribute("accountList", bankAccountList);
+    model.addAttribute("accountList", accountWrapper);
     return "accountlist";
   }
 
+  @GetMapping("/raisethebalance")
+  public String showList(Model model) {
+    model.addAttribute("accountWrapper", accountWrapper);
+    return "raisethebalance";
+  }
+
+  @PostMapping("/raisethebalance")
+  public String showList(Model model, AccountWrapper accountWrapper) {
+    for (int i = 0; i < this.accountWrapper.getBalanceList().size(); i++) {
+      this.accountWrapper.getBalanceList().get(i).setBalance(accountWrapper.getBalanceList().get(i).getBalance());
+    }
+
+    System.out.println(accountWrapper.getBalanceList().toString());
+    model.addAttribute("accountWrapper", this.accountWrapper);
+    return "raisethebalance";
+  }
+
   public void populateBankAccountList() {
-    bankAccountList.add(new BankAccount("Simba", 2000, "lion", true, false));
-    bankAccountList.add(new BankAccount("Pumbaa", 3333.33, "boar", false, false));
-    bankAccountList.add(new BankAccount("Timon", 15, "meerkats", false, false));
-    bankAccountList.add(new BankAccount("Mufasa", 111.11, "lion", false, true));
-    bankAccountList.add(new BankAccount("Zazu", 2535.21, "bird", false, false));
+    accountWrapper.addItem(new BankAccount("Simba", 2000, "lion", true, false));
+    accountWrapper.addItem(new BankAccount("Pumbaa", 3333.33, "boar", false, false));
+    accountWrapper.addItem(new BankAccount("Timon", 15, "meerkats", false, false));
+    accountWrapper.addItem(new BankAccount("Mufasa", 111.11, "lion", true, true));
+    accountWrapper.addItem(new BankAccount("Zazu", 2535.21, "bird", false, false));
   }
 }
