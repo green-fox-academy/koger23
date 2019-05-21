@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Account List</title>
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
+    <div th:replace="fragments/navigation :: copy"></div>
     <table>
         <thead>
             <th>Index</th>
@@ -25,7 +27,6 @@
                     <span th:if="${account.side == false}">Good One</span>
                     <span th:if="${account.side == true}">Bad Guy</span>
                 </td>
-
             </tr>
         </tbody>
     </table>
