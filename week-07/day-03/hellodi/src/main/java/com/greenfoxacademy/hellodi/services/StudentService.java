@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class StudentService {
+public class StudentService implements StudentServable {
   ArrayList<String> names;
 
   public StudentService() {
@@ -16,14 +16,18 @@ public class StudentService {
     names.add("John");
   }
 
+
+  @Override
   public List<String> findAll() {
     return names;
   }
 
+  @Override
   public void save(String student) {
     names.add(student);
   }
 
+  @Override
   public int countStudents() {
     return names.size();
   }
