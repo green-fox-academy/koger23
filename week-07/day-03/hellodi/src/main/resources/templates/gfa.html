@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student List</title>
+</head>
+<body>
+    <ul>
+        <h3>Useful utilities</h3>
+        <li><a href="/useful">Color</a></li>
+        <li><a href="/useful/caesar">Caesar encoding</a></li>
+        <li><a href="/useful/email">Email validation</a></li>
+
+        <h3>GFA</h3>
+        <p th:text="|Number of students: ${numberofstudents}|"></p>
+        <li><a href="/gfa/studentlist">Student list</a></li>
+        <li><a href="/gfa/add">Add new Student</a></li>
+        <li><a href="/gfa/check">Check Student</a></li>
+    </ul>
+</body>
+</html>
