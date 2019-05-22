@@ -57,6 +57,11 @@ public class BankAccount {
   }
 
   public void setKing(boolean king) {
+    if (king) {
+      step = 100;
+    } else {
+      step = 10;
+    }
     this.king = king;
   }
 
