@@ -51,6 +51,19 @@ public class BankAccountController {
     return "raisethebalance";
   }
 
+  @GetMapping("/addaccount")
+  public String addAccount(Model model) {
+    model.addAttribute("newaccount", new BankAccount());
+    return "addaccount";
+  }
+  @PostMapping("/add")
+  public String add(@ModelAttribute BankAccount bankAccount) {
+    this.accountWrapper.addItem(bankAccount);
+    System.out.println(bankAccount.isKing());
+    System.out.println(bankAccount.isBad());
+    return "redirect:/accountlist";
+  }
+
   public void populateBankAccountList() {
     accountWrapper.addItem(new BankAccount("Simba", 2000, "lion", true, false));
     accountWrapper.addItem(new BankAccount("Pumbaa", 3333.33, "boar", false, false));
