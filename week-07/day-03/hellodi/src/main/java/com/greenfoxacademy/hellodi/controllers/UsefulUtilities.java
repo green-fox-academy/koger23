@@ -1,5 +1,6 @@
-package com.greenfoxacademy.hellodi.controller;
+package com.greenfoxacademy.hellodi.controllers;
 
+import com.greenfoxacademy.hellodi.services.Caesar;
 import com.greenfoxacademy.hellodi.services.UtilityService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,9 +11,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class UsefulUtilities {
 
   UtilityService utilityService;
+  Caesar caesar;
 
-  public UsefulUtilities(UtilityService utilityService) {
+  public UsefulUtilities(UtilityService utilityService, Caesar caesar) {
     this.utilityService = utilityService;
+    this.caesar = caesar;
   }
 
   @GetMapping("/useful")
@@ -31,5 +34,12 @@ public class UsefulUtilities {
       model.addAttribute("textcolor", "red");
     }
     return "email";
+  }
+
+  @GetMapping("/useful/caesar")
+  public String coder(Model model, @RequestParam String text, @RequestParam int shiftNumber) {
+    System.out.println(text + " " + shiftNumber);
+    model.addAttribute("caesartext", caesar.caesar(text, shiftNumber));
+    return "caesar";
   }
 }
