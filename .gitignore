@@ -88,8 +88,10 @@ modules.xml
 
 HELP.md
 .gradle
-/build/
+build
+build/
 */build/
+**/build/
 !gradle/wrapper/gradle-wrapper.jar
 
 ### STS ###
