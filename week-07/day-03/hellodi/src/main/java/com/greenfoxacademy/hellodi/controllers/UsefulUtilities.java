@@ -2,8 +2,9 @@ package com.greenfoxacademy.hellodi.controllers;
 
 import com.greenfoxacademy.hellodi.models.Student;
 import com.greenfoxacademy.hellodi.services.Caesar;
-import com.greenfoxacademy.hellodi.services.StudentService;
+import com.greenfoxacademy.hellodi.services.StudentServable;
 import com.greenfoxacademy.hellodi.services.UtilityService;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,14 +14,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class UsefulUtilities {
 
-  UtilityService utilityService;
-  Caesar caesar;
-  StudentService studentService;
+  private UtilityService utilityService;
+  private Caesar caesar;
+  private StudentServable studentServable;
 
-  public UsefulUtilities(UtilityService utilityService, Caesar caesar, StudentService studentService) {
+  public UsefulUtilities(UtilityService utilityService, Caesar caesar,
+                         @Qualifier("StudentSaver") StudentServable studentServable) {
     this.utilityService = utilityService;
     this.caesar = caesar;
-    this.studentService = studentService;
+    this.studentServable = studentServable;
   }
 
   @GetMapping("/useful")
@@ -49,13 +51,13 @@ public class UsefulUtilities {
 
   @GetMapping("/gfa")
   public String gfaIndex(Model model) {
-    model.addAttribute("numberofstudents", studentService.countStudents());
+    model.addAttribute("numberofstudents", studentServable.countStudents());
     return "gfa";
   }
 
   @GetMapping("/gfa/studentlist")
   public String listStudents(Model model) {
-    model.addAttribute("studentList", studentService.findAll());
+    model.addAttribute("studentList", studentServable.findAll());
     return "studentlist";
   }
 
@@ -67,7 +69,7 @@ public class UsefulUtilities {
 
   @GetMapping("/gfa/save")
   public String addStudent(Model model, @ModelAttribute Student student) {
-    studentService.save(student.getName());
+    studentServable.save(student.getName());
     return "redirect:/gfa/studentlist";
   }
 
@@ -78,7 +80,7 @@ public class UsefulUtilities {
 
   @GetMapping("/gfa/result")
   public String checkStudent(Model model, @RequestParam String name) {
-    if (studentService.findAll().contains(name)) {
+    if (studentServable.findAll().contains(name)) {
       model.addAttribute("text", name + " is already in the list.");
     } else {
       model.addAttribute("text", name + " is not in the list.");

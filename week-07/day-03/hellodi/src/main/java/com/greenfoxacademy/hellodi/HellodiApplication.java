@@ -8,6 +8,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 @SpringBootApplication
 public class HellodiApplication implements CommandLineRunner {
 
@@ -27,5 +31,8 @@ public class HellodiApplication implements CommandLineRunner {
   @Override
   public void run(String... args) throws Exception {
     printer.log(colorAble.getColour());
+    Path path = Paths.get("names.txt");
+    if (!Files.exists(path))
+      Files.createFile(path);
   }
 }

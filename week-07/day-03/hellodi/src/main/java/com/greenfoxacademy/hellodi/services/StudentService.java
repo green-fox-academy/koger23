@@ -1,13 +1,15 @@
 package com.greenfoxacademy.hellodi.services;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Qualifier("StudentService")
 public class StudentService implements StudentServable {
-  ArrayList<String> names;
+  private ArrayList<String> names;
 
   public StudentService() {
     names = new ArrayList<>();
@@ -15,7 +17,6 @@ public class StudentService implements StudentServable {
     names.add("Lilla");
     names.add("John");
   }
-
 
   @Override
   public List<String> findAll() {
