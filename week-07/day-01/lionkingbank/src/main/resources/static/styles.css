@@ -1,6 +1,6 @@
 :root {
     --body-widht: 700px;
-    --button-radius: 2px;
+    --button-radius: 4px;
     --button-bg-color: #000000;
     --button-fg-color: #FFFFFF;
     --table-header-bg-color: #000000;
@@ -23,21 +23,27 @@ button {
     color: var(--button-fg-color);
     background-color: var(--table-header-bg-color);
     font-weight: bold;
+    height: 25px;
+    font-size: 16px;
 }
 
 table {
     border: none;
     border-collapse: collapse;
     margin: 0 auto;
-width: var(--body-widht);
+    width: var(--body-widht);
+}
+
+#btn_save {
+    margin-bottom: 10px;
 }
 
 th {
-    color: var(--table-header-fg-color);
-    background-color: var(--table-header-bg-color);
-    font-size: 20px;
-    font-weight: bold;
-    padding: 10px 20px;
+    color:              var(--table-header-fg-color);
+    background-color:   var(--table-header-bg-color);
+    font-size:          20px;
+    font-weight:        bold;
+    padding:            10px 20px;
 }
 
 td {
@@ -49,15 +55,27 @@ tr:nth-child(even) {
 }
 
 .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 700px;
-    margin-bottom: 30px;
+    display:            flex;
+    align-items:        center;
+    justify-content:    space-between;
+    width:              700px;
+    margin-bottom:      30px;
 }
 
-.navbar button{
-    height: 40px;
-    font-size: 20px;
-    padding: 10px 30px 10px 30px;
+.navbar button {
+    height:     50px;
+    font-size:  20px;
+    margin:     5px;
+}
+
+
+.add {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#lbl_animaltype, #lbl_name, #lbl_balance {
+    width: 100px;
 }
