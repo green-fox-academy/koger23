@@ -18,4 +18,11 @@ public class UtilityService {
   public String randomColor() {
     return colorProvider.getColorList().get(random.nextInt(colorProvider.getColorList().size()));
   }
+
+  public boolean validateEmail  (String emailAddress) {
+    if (emailAddress.contains("@") && emailAddress.contains(".")) {
+      return true;
+    }
+    return false;
+  }
 }
