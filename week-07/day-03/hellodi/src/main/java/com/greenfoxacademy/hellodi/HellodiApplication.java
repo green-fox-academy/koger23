@@ -26,7 +26,6 @@ public class HellodiApplication implements CommandLineRunner {
 
   @Override
   public void run(String... args) throws Exception {
-    printer.log("This is the log from the run() method");
-    colorAble.printColor();
+    printer.log(colorAble.getColour());
   }
 }
