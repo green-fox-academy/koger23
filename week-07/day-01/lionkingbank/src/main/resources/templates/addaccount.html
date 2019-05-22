@@ -9,20 +9,23 @@
     <div th:replace="fragments/navigation :: copy"></div>
     <form id="addaccount_form" th:method="post" th:action="@{/add}" th:object="${newaccount}">
         <div class="addaccount_form">
-            <div class="add_name">
-                <label id="lbl_name" th:text="Name" th:for="field_name_input"></label><input id="field_name" th:field="*{name}" th:type="text">
-            </div>
-            <div class="add_balance">
-                <label id="lbl_balance" th:text="Balance" th:for="field_balance_input"></label><input id="field_balance" th:field="*{balance}" th:type="number">
-            </div>
-            <div class="add_balance">
-                <label id="lbl_animaltype" th:text="Animaltype" th:for="lbl_animaltype"></label><input id="field_animaltype" th:field="*{animalType}" th:type="text">
-            </div>
-            <div class="radiobuttons">
-                <input th:type="checkbox" th:name="king_checkbox" th:field="*{king}" th:checked="${newaccount.king}">King<br>
+            <div class="add">
+                <label id="lbl_name" th:text="Name" th:for="field_name_input"></label>
+                <input id="field_name" th:field="*{name}" th:type="text">
+                <br>
+                <label id="lbl_balance" th:text="Balance" th:for="field_balance_input"></label>
+                <input id="field_balance" th:field="*{balance}" th:type="number">
+                <br>
+                <label id="lbl_animaltype" th:text="Animaltype" th:for="lbl_animaltype"></label>
+                <input id="field_animaltype" th:field="*{animalType}" th:type="text">
+                <div class="checkboxes">
+                <input th:type="checkbox" th:name="king_checkbox" th:field="*{king}" th:checked="${newaccount.king}">King
+                </div>
+                <div class="checkboxes">
                 <input th:type="checkbox" th:name="side_checkbox" th:field="*{bad}" th:checked="${newaccount.bad}">Bad Guy
+                </div>
+                <button th:type="submit">Button</button>
             </div>
-            <button th:type="submit">Button</button>
         </div>
     </form>
 </body>
