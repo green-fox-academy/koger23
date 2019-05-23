@@ -54,8 +54,7 @@ public class FoxKennel {
   }
 
   public void initDefaultFox() {
-    Fox defaultFox = new Fox("Mr.Fox", new Food("rotten food"), new Drink("hot water"),
-            Arrays.asList("survive"));
+    Fox defaultFox = new Fox("Mr.Fox", new Food("rotten food"), new Drink("hot water"));
     foxList.add(defaultFox);
   }
 }
