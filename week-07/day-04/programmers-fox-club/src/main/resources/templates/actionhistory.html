@@ -7,7 +7,7 @@
 <body>
     <div th:replace="fragments/navigation :: copy"></div>
     <div class="actionlist">
-        <lu th:if="" th:each="action : ${actionHistoryLogger.actionList}">
+        <lu th:if="${actionHistoryLogger.actionList.size()} != 0" th:each="action : ${actionHistoryLogger.actionList}">
             <li th:text="${action}"></li>
         </lu>
     </div>
