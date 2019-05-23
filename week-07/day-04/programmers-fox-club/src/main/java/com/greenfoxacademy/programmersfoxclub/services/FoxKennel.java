@@ -1,9 +1,12 @@
 package com.greenfoxacademy.programmersfoxclub.services;
 
+import com.greenfoxacademy.programmersfoxclub.models.Drink;
+import com.greenfoxacademy.programmersfoxclub.models.Food;
 import com.greenfoxacademy.programmersfoxclub.models.Fox;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -13,6 +16,7 @@ public class FoxKennel {
 
   public FoxKennel() {
     foxList = new ArrayList<>();
+    initDefaultFox();
   }
 
   public boolean addFox(Fox fox) {
@@ -47,5 +51,11 @@ public class FoxKennel {
 
   public void setFoxList(List<Fox> foxList) {
     this.foxList = foxList;
+  }
+
+  public void initDefaultFox() {
+    Fox defaultFox = new Fox("Mr.Fox", new Food("rotten food"), new Drink("hot water"),
+            Arrays.asList("survive"));
+    foxList.add(defaultFox);
   }
 }
