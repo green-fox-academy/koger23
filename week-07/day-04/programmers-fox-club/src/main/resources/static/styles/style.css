@@ -1,0 +1,8 @@
+:root {
+    --greenfox-light-green:     #3CB878;
+    --greenfox-dark-green:      #007335;
+}
+
+h1, h2, h3 {
+    color: var(--greenfox-light-green);
+}
