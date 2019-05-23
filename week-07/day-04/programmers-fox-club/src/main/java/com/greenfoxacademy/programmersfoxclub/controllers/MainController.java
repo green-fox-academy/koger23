@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MainController {
@@ -41,13 +42,24 @@ public class MainController {
       activeFoxIndex = foxKennel.getFoxID(fox);
       model.addAttribute(fox);
       return "redirect:/";
+    } else {
+      activeFoxIndex = foxKennel.getFoxID(fox);
+      model.addAttribute(fox);
+      return "login";
     }
-    model.addAttribute(fox);
-    return "login";
   }
 
   @GetMapping("/nutritionstore")
-  public String nutritionStore() {
+  public String nutritionStore(Model model) {
     return "nutritionstore";
+  }
+
+  @GetMapping("/nutritionsave")
+  public String saveNutritions(Model model, @RequestParam("food") String food,
+                               @RequestParam("drink") String drink) {
+    foxKennel.getFoxList().get(activeFoxIndex).getFood().setName(food.toLowerCase());
+    foxKennel.getFoxList().get(activeFoxIndex).getDrink().setName(drink.toLowerCase());
+    model.addAttribute("fox", foxKennel.getFoxList().get(activeFoxIndex));
+    return "redirect:/";
   }
 }
