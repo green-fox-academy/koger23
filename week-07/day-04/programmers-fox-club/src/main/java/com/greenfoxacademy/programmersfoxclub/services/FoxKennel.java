@@ -32,8 +32,13 @@ public class FoxKennel {
             .collect(Collectors.toList()).get(0);
   }
 
-  public int getFoxID(Fox fox) {
-    return foxList.indexOf(fox);
+  public int getFoxIndex(Fox fox) {
+    for (int i = 0; i < foxList.size(); i++) {
+      if (foxList.get(i).getName().equals(fox.getName())) {
+        return i;
+      }
+    }
+    return -1;
   }
 
   public boolean checkFoxExists(String name) {
