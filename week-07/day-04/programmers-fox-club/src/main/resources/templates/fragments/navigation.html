@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Navigation</title>
+    <link rel="stylesheet" href="/styles/style.css">
 </head>
 <body>
     <div th:fragment="copy" class="navbar">
@@ -11,6 +12,14 @@
             <li><a href="/nutritionstore">Nutrition Store</a></li>
             <li><a href="/trickcenter">Trick Center</a></li>
             <li><a href="/actionhistory">Action History</a></li>
+            <li>
+                <span th:if="${activeFoxIndex} == 0">
+                    <a href="/login">Login</a>
+                </span>
+                <span th:if="${activeFoxIndex} != 0">
+                    <a href="/logout">Logout</a>
+                </span>
+            </li>
         </ul>
     </div>
 </body>
