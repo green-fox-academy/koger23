@@ -50,7 +50,7 @@ public class MainController {
   }
 
   @GetMapping("/nutritionstore")
-  public String nutritionStore(Model model) {
+  public String nutritionStore() {
     return "nutritionstore";
   }
 
@@ -59,6 +59,19 @@ public class MainController {
                                @RequestParam("drink") String drink) {
     foxKennel.getFoxList().get(activeFoxIndex).getFood().setName(food.toLowerCase());
     foxKennel.getFoxList().get(activeFoxIndex).getDrink().setName(drink.toLowerCase());
+    model.addAttribute("fox", foxKennel.getFoxList().get(activeFoxIndex));
+    return "redirect:/";
+  }
+
+  @GetMapping("/trickcenter")
+  public String trickCenter() {
+    return "trickcenter";
+  }
+
+  @GetMapping("/tricksave")
+  public String saveTrick(Model model, @RequestParam("trick") String trick) {
+    System.out.println(trick);
+    foxKennel.getFoxList().get(activeFoxIndex).addTrick(trick);
     model.addAttribute("fox", foxKennel.getFoxList().get(activeFoxIndex));
     return "redirect:/";
   }
