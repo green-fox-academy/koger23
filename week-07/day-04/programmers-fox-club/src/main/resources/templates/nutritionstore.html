@@ -7,7 +7,7 @@
 <body>
     <div th:replace="fragments/navigation :: copy"></div>
     <div class="select-menu">
-        <form th:action="@{/nutritionsave}" th:method="get">
+        <form th:action="@{/nutritionsave}" th:method="post">
             <p>Food
                 <select name="food">
                     <option value="Pizza">Pizza</option>
