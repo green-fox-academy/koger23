@@ -12,7 +12,7 @@ import java.util.List;
 
 @Repository
 public class Logger {
-  List<String> actionList = new ArrayList<>();
+  private List<String> actionList = new ArrayList<>();
 
   public Logger() {
   }
