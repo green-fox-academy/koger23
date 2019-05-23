@@ -18,5 +18,12 @@
             <li th:text="${trick}"></li>
         </lu>
     </div>
+    <h1>Action history</h1>
+    <div class="actionlist">
+        <lu th:if="${actionHistoryLogger.actionList.size()} != 0" th:each="action : ${actionHistoryLogger.getLastFiveAction()}">
+            <li th:text="${action}"></li>
+        </lu>
+        <span th:unless="${actionHistoryLogger.actionList.size()} != 0">No actions so far.</span>
+    </div>
 </body>
 </html>
