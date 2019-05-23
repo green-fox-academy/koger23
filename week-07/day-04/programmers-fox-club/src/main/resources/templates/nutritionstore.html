@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nutrition Store</title>
+</head>
+<body>
+    <div th:replace="fragments/navigation :: copy"></div>
+    <div class="select-menu">
+        <form th:action="@{/}" th:method="post">
+            <p>Food
+                <select>
+                    <option value="Pizza">Pizza</option>
+                    <option value="Salad">Salad</option>
+                    <option value="Rotten tomato">Rotten tomato</option>
+                    <option value="Human Tibia">Human Tibia</option>
+                    <option value="Something from the garbage">Something from the garbage</option>
+                </select>
+                Drink
+                <select>
+                    <option value="Beer">Beer</option>
+                    <option value="Orange juice">Orange juice</option>
+                    <option value="Giant milk">Giant milk</option>
+                    <option value="Rain water">Rain water</option>
+                    <option value="Tear of virgins">Tear of virgins</option>
+                </select>
+                <button th:type="submit">Change</button>
+        </form>
+    </div>
+</body>
+</html>
