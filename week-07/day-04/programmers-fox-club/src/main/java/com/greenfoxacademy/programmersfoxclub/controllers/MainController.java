@@ -24,6 +24,7 @@ public class MainController {
 
   @GetMapping("/")
   public String home(Model model) {
+    model.addAttribute("actionHistoryLogger", logger);
     model.addAttribute("fox", foxKennel.getFoxList().get(activeFoxIndex));
     return "index";
   }
@@ -45,6 +46,8 @@ public class MainController {
     if (foxKennel.addFox(fox)) {
       activeFoxIndex = foxKennel.getFoxID(fox);
       model.addAttribute(fox);
+      logger.getActionList().clear();
+      logger.saveLoginAction();
       return "redirect:/";
     } else {
       activeFoxIndex = foxKennel.getFoxID(fox);
