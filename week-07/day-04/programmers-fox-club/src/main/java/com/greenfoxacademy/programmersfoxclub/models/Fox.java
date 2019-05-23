@@ -1,6 +1,5 @@
 package com.greenfoxacademy.programmersfoxclub.models;
 
-import com.greenfoxacademy.programmersfoxclub.repositories.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
