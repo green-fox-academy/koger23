@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Trick Center</title>
+</head>
+<body>
+    <div th:replace="fragments/navigation :: copy"></div>
+    <div class="select-menu">
+        <form th:action="@{/tricksave}" th:method="get">
+            <p>Tricks
+                <select name="trick">
+                    <option value="Killing birds while sleeping">Killing birds while sleeping</option>
+                    <option value="Fly">Fly</option>
+                    <option value="Make deads alive">Make deads alive</option>
+                    <option value="Coding instead of you">Coding instead of you</option>
+                    <option value="Speak Chinese">Speak Chinese</option>
+                </select>
+                <button th:type="submit">Learn</button>
+        </form>
+    </div>
+</body>
+</html>
