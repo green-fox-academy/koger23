@@ -1,16 +1,24 @@
 package com.greenfoxacademy.programmersfoxclub.models;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Fox {
   private String name;
   private Food food;
   private Drink drink;
-  private List<String> trickList;
+  private List<String> trickList = new ArrayList<>();
 
   public Fox() {
-    this("", new Food("pudding"), new Drink("beer"), new ArrayList<>());
+    this("", new Food("pudding"), new Drink("beer"));
+    trickList.add("Do 100 pushups");
+  }
+
+  public Fox(String name, Food food, Drink drink) {
+    this.name = name;
+    this.food = food;
+    this.drink = drink;
     trickList.add("Do 100 pushups");
   }
 
