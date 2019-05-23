@@ -1,7 +1,5 @@
 package com.greenfoxacademy.programmersfoxclub.controllers;
 
-import com.greenfoxacademy.programmersfoxclub.models.Drink;
-import com.greenfoxacademy.programmersfoxclub.models.Food;
 import com.greenfoxacademy.programmersfoxclub.models.Fox;
 import com.greenfoxacademy.programmersfoxclub.services.FoxKennel;
 import org.springframework.stereotype.Controller;
@@ -10,8 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.Arrays;
-
 @Controller
 public class MainController {
   private FoxKennel foxKennel;
@@ -19,7 +15,6 @@ public class MainController {
 
   public MainController(FoxKennel foxKennel) {
     this.foxKennel = foxKennel;
-
   }
 
   @GetMapping("/")
@@ -49,5 +44,10 @@ public class MainController {
     }
     model.addAttribute(fox);
     return "login";
+  }
+
+  @GetMapping("/nutritionstore")
+  public String nutritionStore() {
+    return "nutritionstore";
   }
 }
