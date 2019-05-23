@@ -26,12 +26,18 @@ public class Logger {
   public void saveNutritionChange(Nutrition nutrition, String before, String after) {
     String message = getDatetime() + ": " + nutrition.getType() + " changed from " + before + " to " + after;
     actionList.add(message);
-    System.out.println(actionList.toString());
   }
 
   public void saveTrickAction(String trick) {
     String message = getDatetime() + ": " + "Learned to " + trick;
     actionList.add(message);
-    System.out.println(actionList.toString());
+  }
+
+  public List<String> getActionList() {
+    return actionList;
+  }
+
+  public void setActionList(List<String> actionList) {
+    this.actionList = actionList;
   }
 }
