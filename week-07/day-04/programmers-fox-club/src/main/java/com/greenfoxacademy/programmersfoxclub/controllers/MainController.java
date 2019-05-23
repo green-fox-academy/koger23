@@ -24,6 +24,10 @@ public class MainController {
 
   @GetMapping("/")
   public String home(Model model) {
+    if (activeFoxIndex == 0) {
+      model.addAttribute("fox", new Fox());
+      return "redirect:/login";
+    }
     model.addAttribute("actionHistoryLogger", logger);
     model.addAttribute("fox", foxKennel.getFoxList().get(activeFoxIndex));
     return "index";
@@ -43,47 +47,52 @@ public class MainController {
 
   @PostMapping("/login")
   public String loggedIn(Model model, @ModelAttribute Fox fox) {
-    if (foxKennel.addFox(fox)) {
-      activeFoxIndex = foxKennel.getFoxID(fox);
+    if (foxKennel.addFox(fox) && !fox.getName().isEmpty()) {
+      activeFoxIndex = foxKennel.getFoxIndex(fox);
       model.addAttribute(fox);
       logger.getActionList().clear();
       logger.saveLoginAction();
-      return "redirect:/";
-    } else {
-      activeFoxIndex = foxKennel.getFoxID(fox);
+    } else if (foxKennel.checkFoxExists(fox.getName()) && !fox.getName().isEmpty()){
+      activeFoxIndex = foxKennel.getFoxIndex(fox);
       model.addAttribute(fox);
-      return "login";
+    } else {
+      return "redirect:/login";
     }
+    return "redirect:/";
   }
 
   @GetMapping("/nutritionstore")
-  public String nutritionStore() {
+  public String nutritionStore(Model model) {
+    if (activeFoxIndex == 0) {
+      model.addAttribute("fox", new Fox());
+      return "redirect:/login";
+    }
     return "nutritionstore";
   }
 
-  @GetMapping("/nutritionsave")
+  @PostMapping("/nutritionsave")
   public String saveNutritions(Model model, @RequestParam("food") String food,
                                @RequestParam("drink") String drink) {
-
     String foodBefore = foxKennel.getFoxList().get(activeFoxIndex).getFood().getName();
     String drinkBefore = foxKennel.getFoxList().get(activeFoxIndex).getDrink().getName();
-
     foxKennel.getFoxList().get(activeFoxIndex).getFood().setName(food.toLowerCase());
     logger.saveNutritionChange(foxKennel.getFoxList().get(activeFoxIndex).getFood(), foodBefore, foxKennel.getFoxList().get(activeFoxIndex).getFood().getName());
-
     foxKennel.getFoxList().get(activeFoxIndex).getDrink().setName(drink.toLowerCase());
     logger.saveNutritionChange(foxKennel.getFoxList().get(activeFoxIndex).getDrink(), drinkBefore, foxKennel.getFoxList().get(activeFoxIndex).getDrink().getName());
-
     model.addAttribute("fox", foxKennel.getFoxList().get(activeFoxIndex));
     return "redirect:/";
   }
 
   @GetMapping("/trickcenter")
-  public String trickCenter() {
+  public String trickCenter(Model model) {
+    if (activeFoxIndex == 0) {
+      model.addAttribute("fox", new Fox());
+      return "redirect:/login";
+    }
     return "trickcenter";
   }
 
-  @GetMapping("/tricksave")
+  @PostMapping("/tricksave")
   public String saveTrick(Model model, @RequestParam("trick") String trick) {
     foxKennel.getFoxList().get(activeFoxIndex).addTrick(trick);
     logger.saveTrickAction(trick);
@@ -93,6 +102,10 @@ public class MainController {
 
   @GetMapping("/actionhistory")
   public String actionHistory(Model model) {
+    if (activeFoxIndex == 0) {
+      model.addAttribute("fox", new Fox());
+      return "redirect:/login";
+    }
     model.addAttribute("actionHistoryLogger", logger);
     return "actionhistory";
   }
