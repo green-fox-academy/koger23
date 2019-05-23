@@ -14,17 +14,17 @@ import java.util.Arrays;
 
 @Controller
 public class MainController {
-  FoxKennel foxKennel;
+  private FoxKennel foxKennel;
+  private int activeFoxIndex = 0;
 
   public MainController(FoxKennel foxKennel) {
     this.foxKennel = foxKennel;
+
   }
 
   @GetMapping("/")
   public String home(Model model) {
-    Fox defaultFox = new Fox("Karak", new Food("pudding"), new Drink("beer"), Arrays.asList("pushups", "killing birds"));
-    foxKennel.addFox(defaultFox);
-    model.addAttribute("fox", defaultFox);
+    model.addAttribute("fox", foxKennel.getFoxList().get(activeFoxIndex));
     return "index";
   }
 
@@ -42,7 +42,12 @@ public class MainController {
 
   @PostMapping("/login")
   public String loggedIn(Model model, @ModelAttribute Fox fox) {
-    model.addAttribute("fox", fox);
-    return "redirect:/";
+    if (foxKennel.addFox(fox)) {
+      activeFoxIndex = foxKennel.getFoxID(fox);
+      model.addAttribute(fox);
+      return "redirect:/";
+    }
+    model.addAttribute(fox);
+    return "login";
   }
 }
