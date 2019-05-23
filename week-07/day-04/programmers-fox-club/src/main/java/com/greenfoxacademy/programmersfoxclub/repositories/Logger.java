@@ -33,6 +33,7 @@ public class Logger {
   }
 
   public void saveLoginAction() {
+    actionList.clear();
     String message = getDatetime() + ": logged in.";
     actionList.add(message);
   }
