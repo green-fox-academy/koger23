@@ -1,6 +1,6 @@
 package com.greenfoxacademy.programmersfoxclub.models;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Fox {
@@ -10,7 +10,8 @@ public class Fox {
   private List<String> trickList;
 
   public Fox() {
-    this("", new Food("pudding"), new Drink("beer"), Arrays.asList("Do 100 pushups", "Killing birds while sleeping"));
+    this("", new Food("pudding"), new Drink("beer"), new ArrayList<>());
+    trickList.add("Do 100 pushups");
   }
 
   public Fox(String name, Food food, Drink drink, List<String> trickList) {
@@ -50,5 +51,14 @@ public class Fox {
 
   public void setTrickList(List<String> trickList) {
     this.trickList = trickList;
+  }
+
+  public boolean addTrick(String trick) {
+    if (trickList.contains(trick)) {
+      return false;
+    } else {
+      trickList.add(trick);
+      return true;
+    }
   }
 }
