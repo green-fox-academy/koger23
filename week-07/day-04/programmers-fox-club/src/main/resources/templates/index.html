@@ -7,12 +7,23 @@
 </head>
 <body>
     <div th:replace="fragments/navigation :: copy"></div>
-    <div th:class="|fox-info-container ${fox.color}|">
-        <div class="fox_image">
-            <img th:src="@{'/img/' + ${fox.color} + 'fox.png'}" alt="greenfox" height="256" width="256">
+    <div th:class="|fox-info-container content ${fox.color}|">
+        <div class="fox_info">
+            <div class="avatar">
+                <img th:src="@{'/img/' + ${fox.color} + 'fox.png'}" alt="greenfox" height="256" width="256">
+            </div>
+            <div class="fox_details">
+                <h1 th:text="${fox.name}"></h1>
+                <div class="stats">
+                    <p th:text="|Born: ${fox.birthDayString}|"></p>
+                    <p th:text="|Health points: ${fox.healthPoints}| + ' %'"></p>
+                    <p th:text="|Food level: ${fox.food.level}| + ' / ' + ${fox.food.getMAX_LEVEL()}"></p>
+                    <p th:text="|Drink level: ${fox.drink.level}| + ' / ' + ${fox.drink.getMAX_LEVEL()}"></p>
+                </div>
+            </div>
         </div>
         <div class="fox-infos">
-            <p th:text="'This is ' + ${fox.name} + '. Currently living on ' + ${fox.food.name} + ' and ' + ${fox.drink.name} + '. He knows ' + ${fox.trickList.size()} + 'trick(s)'"></p>
+            <p th:text="'This is ' + ${fox.name} + '. Currently living on ' + ${fox.food.name} + ' and ' + ${fox.drink.name} + '. He knows ' + ${fox.trickList.size()} + ' trick(s)'"></p>
         </div>
         <h1>Known tricks</h1>
         <div class="tricklist">
@@ -22,9 +33,9 @@
         </div>
         <h1>Action history</h1>
         <div class="actionlist">
-            <lu th:if="${actionHistoryLogger.actionList.size()} != 0" th:each="action : ${actionHistoryLogger.getLastFiveAction()}">
+            <ul th:if="${actionHistoryLogger.actionList.size()} != 0" th:each="action : ${actionHistoryLogger.getLastFiveAction()}">
                 <li th:text="${action}"></li>
-            </lu>
+            </ul>
             <span th:unless="${actionHistoryLogger.actionList.size()} != 0">No actions so far.</span>
         </div>
     </div>
