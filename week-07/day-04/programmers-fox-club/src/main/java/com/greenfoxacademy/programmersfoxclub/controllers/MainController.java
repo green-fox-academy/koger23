@@ -55,10 +55,12 @@ public class MainController {
 
   @PostMapping("/login")
   public String loggedIn(Model model, @ModelAttribute Fox fox) {
-    if ((foxKennel.addFox(fox) && !fox.getName().isEmpty()) || foxKennel.checkFoxExists(fox.getName()) && !fox.getName().isEmpty()) {
-    } else {
+    if (fox.getName().isEmpty()) {
       model.addAttribute("activeFoxIndex", activeFoxIndex);
       return "redirect:/login";
+    }
+    if (!foxKennel.checkFoxExists(fox.getName())) {
+      foxKennel.addFox(fox);
     }
     sessionService.login(fox);
     logger.saveLoginAction();
