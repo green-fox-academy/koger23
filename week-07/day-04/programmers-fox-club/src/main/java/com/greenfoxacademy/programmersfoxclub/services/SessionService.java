@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class SessionService {
-
   private MainController mainController;
 
   public SessionService() {
@@ -14,6 +13,7 @@ public class SessionService {
 
   public void login(Fox fox) {
     mainController.setActiveFoxIndex(mainController.getFoxKennel().getFoxIndex(fox));
+    mainController.setColor(mainController.getFoxKennel().getFoxList().get(mainController.getFoxKennel().getFoxIndex(fox)).getColor());
   }
   public void logout() {
     mainController.setActiveFoxIndex(0);
