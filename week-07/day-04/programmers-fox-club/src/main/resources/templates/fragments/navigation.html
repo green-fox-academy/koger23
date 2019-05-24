@@ -7,20 +7,12 @@
 </head>
 <body>
     <div th:fragment="copy" class="navbar">
-        <ul>
-            <li><a href="/">Information</a></li>
-            <li><a href="/nutritionstore">Nutrition Store</a></li>
-            <li><a href="/trickcenter">Trick Center</a></li>
-            <li><a href="/actionhistory">Action History</a></li>
-            <li>
-                <span th:if="${activeFoxIndex} == 0">
-                    <a href="/login">Login</a>
-                </span>
-                <span th:if="${activeFoxIndex} != 0">
-                    <a href="/logout">Logout</a>
-                </span>
-            </li>
-        </ul>
+        <a class="navigation-link" href="/">Information</a>
+        <a class="navigation-link" href="/nutritionstore">Nutrition Store</a>
+        <a class="navigation-link" href="/trickcenter">Trick Center</a>
+        <a class="navigation-link" href="/actionhistory">Action History</a>
+        <a th:if="${activeFoxIndex} == 0" href="/login" th:text="Login"></a>
+        <a th:if="${activeFoxIndex} != 0" href="/logout"th:text="Logout"></a>
     </div>
 </body>
 </html>
