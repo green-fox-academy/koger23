@@ -1,0 +1,13 @@
+:root {
+    --redfox-light-green:     #FF9800;
+    --redfox-dark-green:      #FF5500;
+    --font-family:             Montserrat,sans-serif;
+}
+
+* {
+    font-family: var(--font-family);
+}
+
+h1, h2, h3 {
+    color: var(--redfox-light-green);
+}

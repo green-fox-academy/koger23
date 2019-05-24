@@ -1,0 +1,13 @@
+:root {
+    --bluefox-light-green:     #008FFF;
+    --bluefox-dark-green:      #0066EA;
+    --font-family:             Montserrat,sans-serif;
+}
+
+* {
+    font-family: var(--font-family);
+}
+
+h1, h2, h3 {
+    color: var(--bluefox-light-green);
+}
