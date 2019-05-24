@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>HOME</title>
-    <link rel="stylesheet" th:href="@{'/styles/' + ${fox.color} + '-style.css'}">
+    <link rel="stylesheet" href="/styles/style.css">
 </head>
 <body>
     <div th:replace="fragments/navigation :: copy"></div>
-    <div class="fox-info-container">
+    <div th:class="|fox-info-container ${fox.color}|">
         <div class="fox_image">
             <img th:src="@{'/img/' + ${fox.color} + 'fox.png'}" alt="greenfox" height="256" width="256">
         </div>

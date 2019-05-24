@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Navigation</title>
-    <link rel="stylesheet" href="/styles/green-style.css">
 </head>
 <body>
-    <div th:fragment="copy" class="navigation-container">
+    <div th:fragment="copy" th:class="|navigation-container ${fox.color}|">
         <div class="logo">
             <img width="56px" height="56px" th:src="@{'/img/' + ${fox.color} + 'fox.png'}" alt="greenfox">
             <div class="site-name">
@@ -14,7 +13,7 @@
             </div>
         </div>
         <nav role="navigation" class="navbar">
-            <div class="navbar">
+            <div th:class="|navbar ${fox.color}">
                 <a class="navigation-link" href="/">Information</a>
                 <a class="navigation-link" href="/nutritionstore">Nutrition Store</a>
                 <a class="navigation-link" href="/trickcenter">Trick Center</a>

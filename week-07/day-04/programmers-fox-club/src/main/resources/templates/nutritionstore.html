@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Nutrition Store</title>
-    <link rel="stylesheet" th:href="@{'/styles/' + ${fox.color} + '-style.css'}">
+    <link rel="stylesheet" href="/styles/style.css">
 </head>
 <body>
     <div th:replace="fragments/navigation :: copy"></div>
-    <div class="select-menu">
-        <form th:action="@{/nutritionsave}" th:method="post">
+    <div th:class="|select-menu ${fox.color}|">
+        <form th:class="${fox.color}" th:action="@{/nutritionsave}" th:method="post">
                 <label for="food">Food</label>
                 <select id="food" name="food" class="select-menu">
                     <option value="Pizza">Pizza</option>
