@@ -37,7 +37,7 @@ public class SessionService {
 
     foxKennel.getFoxList().get(activeFoxIndex).getFood().setName(food.toLowerCase());
     logger.saveNutritionChange(foxKennel.getFoxList().get(activeFoxIndex).getFood(), foodBefore, foxKennel.getFoxList().get(activeFoxIndex).getFood().getName());
-    
+
     foxKennel.getFoxList().get(activeFoxIndex).getDrink().setName(drink.toLowerCase());
     logger.saveNutritionChange(foxKennel.getFoxList().get(activeFoxIndex).getDrink(), drinkBefore, foxKennel.getFoxList().get(activeFoxIndex).getDrink().getName());
   }
