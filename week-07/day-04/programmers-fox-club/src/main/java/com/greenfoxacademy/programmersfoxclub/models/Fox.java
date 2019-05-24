@@ -6,10 +6,13 @@ import java.util.List;
 
 public class Fox {
   private String name;
+  private final int MAX_HEALTH = 100;
+  private int healthPoints = 100;
   private Food food;
   private Drink drink;
   private String color = "green";
   private List<String> trickList = new ArrayList<>();
+  private boolean alive = true;
 
   public Fox() {
     this("", new Food("pudding"), new Drink("beer"));
@@ -77,5 +80,32 @@ public class Fox {
 
   public void setColor(String color) {
     this.color = color;
+  }
+
+  public List<Nutrition> getNutritions() {
+    List<Nutrition> nutritionList = new ArrayList<>();
+    nutritionList.add(food);
+    nutritionList.add(drink);
+    return nutritionList;
+  }
+
+  public int getMAX_HEALTH() {
+    return MAX_HEALTH;
+  }
+
+  public int getHealthPoints() {
+    return healthPoints;
+  }
+
+  public void setHealthPoints(int healthPoints) {
+    this.healthPoints = healthPoints;
+  }
+
+  public boolean isAlive() {
+    return alive;
+  }
+
+  public void setAlive(boolean alive) {
+    this.alive = alive;
   }
 }
