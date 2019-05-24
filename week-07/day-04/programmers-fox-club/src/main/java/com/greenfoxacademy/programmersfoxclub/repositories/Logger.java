@@ -2,12 +2,10 @@ package com.greenfoxacademy.programmersfoxclub.repositories;
 
 
 import com.greenfoxacademy.programmersfoxclub.models.Nutrition;
+import com.greenfoxacademy.programmersfoxclub.models.date.DateUtils;
 import org.springframework.stereotype.Repository;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -26,15 +24,9 @@ public class Logger {
     this.lastFiveActionList = lastFiveActionList;
   }
 
-  public String getDatetime() {
-    DateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
-    Date date = new Date();
-    return dateFormat.format(date);
-  }
-
   public void saveLoginAction() {
     actionList.clear();
-    String message = getDatetime() + ": logged in.";
+    String message = DateUtils.getStringDateTime() + ": logged in.";
     actionList.add(message);
   }
 
@@ -42,12 +34,12 @@ public class Logger {
     if (before.equals(after)) {
       return;
     }
-    String message = getDatetime() + ": " + nutrition.getType() + " changed from " + before + " to " + after;
+    String message = DateUtils.getStringDateTime() + ": " + nutrition.getType() + " changed from " + before + " to " + after;
     actionList.add(message);
   }
 
   public void saveTrickAction(String trick) {
-    String message = getDatetime() + ": " + "Learned to " + trick;
+    String message = DateUtils.getStringDateTime() + ": " + "Learned to " + trick;
     actionList.add(message);
   }
 
@@ -62,7 +54,7 @@ public class Logger {
   public List<String> getLastFiveAction() {
     lastFiveActionList.clear();
     if (actionList.size() > 0) {
-      for (int i = actionList.size() -1; i >= 0; i--) {
+      for (int i = actionList.size() - 1; i >= 0; i--) {
         if (lastFiveActionList.size() == 5) {
           break;
         }
