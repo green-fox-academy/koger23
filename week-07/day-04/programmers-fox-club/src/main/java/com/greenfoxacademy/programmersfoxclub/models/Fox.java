@@ -1,6 +1,8 @@
 package com.greenfoxacademy.programmersfoxclub.models;
 
 
+import com.greenfoxacademy.programmersfoxclub.models.date.DateUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +15,8 @@ public class Fox {
   private String color = "green";
   private List<String> trickList = new ArrayList<>();
   private boolean alive = true;
+  private String birthDayString = "";
+  private long birthDateInMinutes = 0;
 
   public Fox() {
     this("", new Food("pudding"), new Drink("beer"));
@@ -23,14 +27,8 @@ public class Fox {
     this.food = food;
     this.drink = drink;
     trickList.add("Hunting");
-  }
-
-  public Fox(String name, Food food, Drink drink, String color, List<String> trickList) {
-    this.name = name;
-    this.food = food;
-    this.drink = drink;
-    this.color = color;
-    this.trickList = trickList;
+    this.birthDayString = DateUtils.getStringDateTime();
+    this.birthDateInMinutes = DateUtils.getCurrentDateTimeInMinutes();
   }
 
   public String getName() {
@@ -107,5 +105,21 @@ public class Fox {
 
   public void setAlive(boolean alive) {
     this.alive = alive;
+  }
+
+  public String getBirthDayString() {
+    return birthDayString;
+  }
+
+  public void setBirthDayString(String birthDayString) {
+    this.birthDayString = birthDayString;
+  }
+
+  public long getBirthDateInMinutes() {
+    return birthDateInMinutes;
+  }
+
+  public void setBirthDateInMinutes(long birthDateInMinutes) {
+    this.birthDateInMinutes = birthDateInMinutes;
   }
 }
