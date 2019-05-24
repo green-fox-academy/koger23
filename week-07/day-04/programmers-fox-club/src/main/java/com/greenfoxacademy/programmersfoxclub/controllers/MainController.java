@@ -18,6 +18,7 @@ public class MainController {
   private Logger logger;
   private SessionService sessionService;
   private int activeFoxIndex = 0;
+  private String color;
 
   public MainController(FoxKennel foxKennel, Logger logger, SessionService sessionService) {
     this.foxKennel = foxKennel;
@@ -160,5 +161,13 @@ public class MainController {
 
   public void setSessionService(SessionService sessionService) {
     this.sessionService = sessionService;
+  }
+
+  public String getColor() {
+    return color;
+  }
+
+  public void setColor(String color) {
+    this.color = color;
   }
 }
