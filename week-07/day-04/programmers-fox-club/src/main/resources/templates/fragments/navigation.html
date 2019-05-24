@@ -6,13 +6,23 @@
     <link rel="stylesheet" href="/styles/green-style.css">
 </head>
 <body>
-    <div th:fragment="copy" class="navbar">
-        <a class="navigation-link" href="/">Information</a>
-        <a class="navigation-link" href="/nutritionstore">Nutrition Store</a>
-        <a class="navigation-link" href="/trickcenter">Trick Center</a>
-        <a class="navigation-link" href="/actionhistory">Action History</a>
-        <a th:if="${activeFoxIndex} == 0" href="/login" th:text="Login"></a>
-        <a th:if="${activeFoxIndex} != 0" href="/logout"th:text="Logout"></a>
+    <div th:fragment="copy" class="navigation-container">
+        <div class="logo">
+            <img width="56px" height="56px" th:src="@{'/img/' + ${fox.color} + 'fox.png'}" alt="greenfox">
+            <div class="site-name">
+                Programmer's Fox Club
+            </div>
+        </div>
+        <nav role="navigation" class="navbar">
+            <div class="navbar">
+                <a class="navigation-link" href="/">Information</a>
+                <a class="navigation-link" href="/nutritionstore">Nutrition Store</a>
+                <a class="navigation-link" href="/trickcenter">Trick Center</a>
+                <a class="navigation-link" href="/actionhistory">Action History</a>
+                <a class="navigation-link" th:if="${activeFoxIndex} == 0" href="/login" th:text="Login"></a>
+                <a class="navigation-link" th:if="${activeFoxIndex} != 0" href="/logout"th:text="Logout"></a>
+            </div>
+        </nav>
     </div>
 </body>
 </html>
