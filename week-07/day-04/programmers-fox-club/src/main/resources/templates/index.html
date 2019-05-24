@@ -7,16 +7,16 @@
 <body>
     <div th:replace="fragments/navigation :: copy"></div>
     <div class="fox_image">
-        <img src="/img/greenfox.png" alt="greenfox" height="256" width="256">
+        <img th:src="@{'/img/' + ${fox.color} + 'fox.png'}" alt="greenfox" height="256" width="256">
     </div>
     <div class="fox-infos">
         <p th:text="| This is ${fox.name} Currently living on ${fox.food.name} and ${fox.drink.name} He knows ${fox.trickList.size()} trick(s)|"></p>
     </div>
     <h1>Known tricks</h1>
     <div class="tricklist">
-        <lu th:each="trick : ${fox.trickList}">
+        <ul th:each="trick : ${fox.trickList}">
             <li th:text="${trick}"></li>
-        </lu>
+        </ul>
     </div>
     <h1>Action history</h1>
     <div class="actionlist">
