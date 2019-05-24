@@ -8,6 +8,7 @@ public class Nutrition {
 
   public Nutrition(String type) {
     this.type = type;
+    this.level = MAX_LEVEL;
   }
 
   public String getType() {
