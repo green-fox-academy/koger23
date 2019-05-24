@@ -9,8 +9,8 @@
     <div th:replace="fragments/navigation :: copy"></div>
     <div class="select-menu">
         <form th:action="@{/tricksave}" th:method="post">
-            <p>Tricks
-                <select name="trick">
+                <label for="trick">Trick</label>
+                <select id="trick" name="trick" class="select-menu">
                     <option value="Killing birds while sleeping">Killing birds while sleeping</option>
                     <option value="Fly">Fly</option>
                     <option value="Make deads alive">Make deads alive</option>
