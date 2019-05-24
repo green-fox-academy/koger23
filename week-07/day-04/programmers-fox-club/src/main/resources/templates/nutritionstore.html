@@ -9,16 +9,16 @@
     <div th:replace="fragments/navigation :: copy"></div>
     <div class="select-menu">
         <form th:action="@{/nutritionsave}" th:method="post">
-            <p>Food
-                <select name="food">
+                <label for="food">Food</label>
+                <select id="food" name="food" class="select-menu">
                     <option value="Pizza">Pizza</option>
                     <option value="Salad">Salad</option>
                     <option value="Rotten tomato">Rotten tomato</option>
                     <option value="Human Tibia">Human Tibia</option>
                     <option value="Something from the garbage">Something from the garbage</option>
                 </select>
-                Drink
-                <select name="drink">
+                <label for="drink">Drink</label>
+                <select id="drink" name="drink" class="select-menu">
                     <option value="Beer">Beer</option>
                     <option value="Orange juice">Orange juice</option>
                     <option value="Giant milk">Giant milk</option>
