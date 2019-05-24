@@ -13,7 +13,6 @@ public class Fox {
 
   public Fox() {
     this("", new Food("pudding"), new Drink("beer"));
-    trickList.add("Hunting");
   }
 
   public Fox(String name, Food food, Drink drink) {
