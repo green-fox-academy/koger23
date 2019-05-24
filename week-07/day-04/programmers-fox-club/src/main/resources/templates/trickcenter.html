@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Trick Center</title>
-    <link rel="stylesheet" th:href="@{'/styles/' + ${fox.color} + '-style.css'}">
+    <link rel="stylesheet" href="/styles/style.css">
 </head>
 <body>
     <div th:replace="fragments/navigation :: copy"></div>
     <div class="select-menu">
-        <form th:action="@{/tricksave}" th:method="post">
+        <form th:class="${fox.color}" th:action="@{/tricksave}" th:method="post">
                 <label for="trick">Trick</label>
                 <select id="trick" name="trick" class="select-menu">
                     <option value="Killing birds while sleeping">Killing birds while sleeping</option>
