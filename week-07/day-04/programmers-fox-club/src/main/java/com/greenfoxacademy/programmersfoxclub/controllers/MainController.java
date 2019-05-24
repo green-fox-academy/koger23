@@ -81,14 +81,7 @@ public class MainController {
   @PostMapping("/nutritionsave")
   public String saveNutritions(Model model, @RequestParam("food") String food,
                                @RequestParam("drink") String drink) {
-    String foodBefore = foxKennel.getFoxList().get(activeFoxIndex).getFood().getName();
-    String drinkBefore = foxKennel.getFoxList().get(activeFoxIndex).getDrink().getName();
-
-    foxKennel.getFoxList().get(activeFoxIndex).getFood().setName(food.toLowerCase());
-    logger.saveNutritionChange(foxKennel.getFoxList().get(activeFoxIndex).getFood(), foodBefore, foxKennel.getFoxList().get(activeFoxIndex).getFood().getName());
-    foxKennel.getFoxList().get(activeFoxIndex).getDrink().setName(drink.toLowerCase());
-    logger.saveNutritionChange(foxKennel.getFoxList().get(activeFoxIndex).getDrink(), drinkBefore, foxKennel.getFoxList().get(activeFoxIndex).getDrink().getName());
-
+    sessionService.saveNutrition(food, drink);
     model.addAttribute("activeFoxIndex", activeFoxIndex);
     model.addAttribute("fox", foxKennel.getFoxList().get(activeFoxIndex));
     return "redirect:/";
