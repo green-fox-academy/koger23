@@ -39,6 +39,9 @@ public class Logger {
   }
 
   public void saveNutritionChange(Nutrition nutrition, String before, String after) {
+    if (before.equals(after)) {
+      return;
+    }
     String message = getDatetime() + ": " + nutrition.getType() + " changed from " + before + " to " + after;
     actionList.add(message);
   }
