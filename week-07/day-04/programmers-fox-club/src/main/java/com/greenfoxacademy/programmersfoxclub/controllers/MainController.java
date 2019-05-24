@@ -74,6 +74,7 @@ public class MainController {
       model.addAttribute("fox", new Fox());
       return "redirect:/login";
     }
+    model.addAttribute("fox", foxKennel.getFoxList().get(activeFoxIndex));
     return "nutritionstore";
   }
 
@@ -100,6 +101,7 @@ public class MainController {
       model.addAttribute("fox", new Fox());
       return "redirect:/login";
     }
+    model.addAttribute("fox", foxKennel.getFoxList().get(activeFoxIndex));
     return "trickcenter";
   }
 
@@ -120,6 +122,7 @@ public class MainController {
       model.addAttribute("fox", new Fox());
       return "redirect:/login";
     }
+    model.addAttribute("fox", foxKennel.getFoxList().get(activeFoxIndex));
     model.addAttribute("actionHistoryLogger", logger);
     return "actionhistory";
   }
