@@ -8,6 +8,7 @@ public class Fox {
   private String name;
   private Food food;
   private Drink drink;
+  private String color = "green";
   private List<String> trickList = new ArrayList<>();
 
   public Fox() {
@@ -22,10 +23,11 @@ public class Fox {
     trickList.add("Hunting");
   }
 
-  public Fox(String name, Food food, Drink drink, List<String> trickList) {
+  public Fox(String name, Food food, Drink drink, String color, List<String> trickList) {
     this.name = name;
     this.food = food;
     this.drink = drink;
+    this.color = color;
     this.trickList = trickList;
   }
 
@@ -68,5 +70,13 @@ public class Fox {
       trickList.add(trick);
       return true;
     }
+  }
+
+  public String getColor() {
+    return color;
+  }
+
+  public void setColor(String color) {
+    this.color = color;
   }
 }
