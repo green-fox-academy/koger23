@@ -1,6 +1,64 @@
 :root {
     --greenfox-light-green:     #3CB878;
     --greenfox-dark-green:      #007335;
+    --font-family:             Montserrat,sans-serif;
+}
+
+* {
+    font-family: var(--font-family);
+}
+
+body {
+    margin: 0 auto;
+}
+
+.site-name {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.logo {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navigation-container {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar {
+    margin-right: 50px;
+}
+
+.navigation-link {
+    vertical-align: center;
+    padding: 35px 6px 35px;
+}
+
+a {
+    color: #424242;
+}
+
+a:active {
+    background-color: var(--greenfox-dark-green);
+}
+
+a:link {
+    color: #424242;
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: var(--greenfox-light-green);
+    color: #FFFFFF;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 h1, h2, h3 {
