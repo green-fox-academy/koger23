@@ -15,7 +15,7 @@
     <div class="form">
         <form th:class="${fox.color}" th:method="post" th:object="${fox}">
             <label for="name">Name</label>
-            <input id="name" name="name" type="text" th:field="*{name}" autofocus/>
+            <input id="name" name="name" type="text" th:field="*{name}" pattern="^[A-Za-z0-9_]{1,32}$" required autofocus minlength="5 " maxlength="15"/>
             <label for="color">Color</label>
             <select id="color" name="color" th:field="*{color}" class="select-menu">
                 <option value="green">Green</option>
