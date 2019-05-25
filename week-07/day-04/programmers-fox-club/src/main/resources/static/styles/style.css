@@ -13,7 +13,7 @@
 }
 
 body {
-    width: 1100px;
+    width: 500px;
     margin: 0px auto;
 }
 
@@ -21,7 +21,7 @@ body {
     display: inline;
     position: fixed;
     top: 0;
-    width: 50%;
+    width: 900px;
     background-color: #FFFFFF;
 }
 
@@ -42,11 +42,12 @@ body {
 hr {
     display: block;
     margin-top: 0.5em;
-    margin-bottom: 0px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: 5px;
+    margin-right: 5px;
     border-style: inset;
     border-width: 1px;
+    width: 480px;
 }
 
 label {
@@ -81,32 +82,36 @@ button {
 }
 
 .site-name {
+    display: inline-block;
     font-weight: bold;
     font-size: 30px;
+    height: fit-content;
+    vertical-align: center;
 }
 
 .logo {
-    display: flex;
-    align-content: center;
-    align-items: center;
-    justify-content: space-between;
+    display: inline-flex;
+    flex-direction: row;
+    align-content: space-between;
+    vertical-align: center;
+    margin-bottom: 10px;
+    width: 500px;
 }
 
 .navigation-container {
     display:            flex;
-    flex-direction:     row;
-    align-content:      center;
-    align-items:        center;
-    justify-content:    space-between;
+    flex-direction:     column;
+    vertical-align: center;
 }
 
 .navbar {
     margin-right: 5px;
+    width: 500px;
 }
 
 .navigation-link {
     vertical-align: center;
-    padding:        28px 6px 28px;
+    padding:        10px 6px 10px;
 }
 
 a {
@@ -226,4 +231,44 @@ input:focus {
 
 li {
     padding: 5px;
+}
+
+@media (min-width: 900px) {
+
+    body {
+        width: 1100px;
+        margin: 0px auto;
+    }
+
+    .navigation-container {
+        display:            flex;
+        flex-direction:     row;
+        align-content:      center;
+        align-items:        center;
+        justify-content:    space-between;
+    }
+
+    .logo {
+        display: flex;
+        align-content: center;
+        align-items: center;
+        margin-bottom: 0;
+        justify-content: space-between;
+    }
+
+    hr {
+        width: 900px;
+    }
+
+    .navigation-link {
+        vertical-align: center;
+        padding:        28px 6px 28px;
+    }
+
+    .site-name {
+        display: flex;
+        font-weight: bold;
+        font-size: 30px;
+        vertical-align: center;
+    }
 }
