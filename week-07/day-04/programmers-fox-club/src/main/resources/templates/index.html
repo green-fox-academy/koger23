@@ -19,6 +19,8 @@
                     <p th:text="|Health points: ${fox.healthPoints}| + ' %'"></p>
                     <p th:text="|Food level: ${fox.food.level}| + ' / ' + ${fox.food.getMAX_LEVEL()}"></p>
                     <p th:text="|Drink level: ${fox.drink.level}| + ' / ' + ${fox.drink.getMAX_LEVEL()}"></p>
+                    <p th:text="|Hunger level: ${fox.hungerLevel}| + ' / ' + ${fox.MAX_HUNGER_LEVEL}"></p>
+                    <p th:text="|Thirst level: ${fox.thirstLevel}| + ' / ' + ${fox.MAX_THIRST_LEVEL}"></p>
                 </div>
             </div>
         </div>
