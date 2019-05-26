@@ -36,6 +36,7 @@ public class MainController {
     }
     model.addAttribute("actionHistoryLogger", logger);
     model.addAttribute("fox", foxKennel.getFoxList().get(activeFoxIndex));
+    sessionService.updateFoxAndNutrition();
     return "index";
   }
 
