@@ -65,6 +65,10 @@ button {
     min-width: 100px;
 }
 
+.usernametip {
+    font-size: 12px;
+}
+
 .green a:active {
     background-color: var(--greenfox-dark-green);
 }
