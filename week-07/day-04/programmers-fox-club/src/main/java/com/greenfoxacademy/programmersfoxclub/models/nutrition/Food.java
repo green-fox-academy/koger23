@@ -1,4 +1,4 @@
-package com.greenfoxacademy.programmersfoxclub.models;
+package com.greenfoxacademy.programmersfoxclub.models.nutrition;
 
 public class Food extends Nutrition {
   private String name;
