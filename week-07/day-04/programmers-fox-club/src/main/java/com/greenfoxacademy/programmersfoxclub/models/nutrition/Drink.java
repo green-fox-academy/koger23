@@ -5,12 +5,12 @@ public class Drink extends Nutrition {
   private int reductionTimeMinutes = 1;
 
   public Drink() {
-    super("Drink");
+    super(Type.DRINK);
     setReductionTimeMinutes(reductionTimeMinutes);
   }
 
   public Drink(String name) {
-    super("Drink");
+    super(Type.DRINK);
     this.name = name;
     setReductionTimeMinutes(reductionTimeMinutes);
   }
