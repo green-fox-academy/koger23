@@ -1,14 +1,14 @@
-package com.greenfoxacademy.programmersfoxclub.repositories;
+package com.greenfoxacademy.programmersfoxclub.services;
 
 
-import com.greenfoxacademy.programmersfoxclub.models.Nutrition;
-import com.greenfoxacademy.programmersfoxclub.models.date.DateUtils;
-import org.springframework.stereotype.Repository;
+import com.greenfoxacademy.programmersfoxclub.models.nutrition.Nutrition;
+import com.greenfoxacademy.programmersfoxclub.utils.date.DateUtils;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Repository
+@Service
 public class Logger {
   private List<String> actionList = new ArrayList<>();
   private List<String> lastFiveActionList = new ArrayList<>();
