@@ -1,14 +1,17 @@
-package com.greenfoxacademy.programmersfoxclub.models;
+package com.greenfoxacademy.programmersfoxclub.models.charachter;
 
 
-import com.greenfoxacademy.programmersfoxclub.models.date.DateUtils;
+import com.greenfoxacademy.programmersfoxclub.utils.date.DateUtils;
+import com.greenfoxacademy.programmersfoxclub.models.nutrition.Drink;
+import com.greenfoxacademy.programmersfoxclub.models.nutrition.Food;
+import com.greenfoxacademy.programmersfoxclub.models.nutrition.Nutrition;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Fox {
-  private String name;
   private final int MAX_HEALTH = 100;
+  private String name;
   private int healthPoints = 100;
   private Food food;
   private Drink drink;
@@ -17,6 +20,8 @@ public class Fox {
   private boolean alive = true;
   private String birthDayString = "";
   private long birthDateInMinutes = 0;
+  private int thirstLevel = 0;
+  private int hungerLevel = 0;
 
   public Fox() {
     this("", new Food("pudding"), new Drink("beer"));
@@ -121,5 +126,21 @@ public class Fox {
 
   public void setBirthDateInMinutes(long birthDateInMinutes) {
     this.birthDateInMinutes = birthDateInMinutes;
+  }
+
+  public int getThirstLevel() {
+    return thirstLevel;
+  }
+
+  public void setThirstLevel(int thirstLevel) {
+    this.thirstLevel = thirstLevel;
+  }
+
+  public int getHungerLevel() {
+    return hungerLevel;
+  }
+
+  public void setHungerLevel(int hungerLevel) {
+    this.hungerLevel = hungerLevel;
   }
 }
