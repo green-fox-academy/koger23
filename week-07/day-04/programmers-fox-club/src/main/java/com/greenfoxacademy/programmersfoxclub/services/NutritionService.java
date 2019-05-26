@@ -1,12 +1,10 @@
 package com.greenfoxacademy.programmersfoxclub.services;
 
-import com.greenfoxacademy.programmersfoxclub.models.Fox;
-import com.greenfoxacademy.programmersfoxclub.models.Nutrition;
+import com.greenfoxacademy.programmersfoxclub.models.charachter.Fox;
+import com.greenfoxacademy.programmersfoxclub.models.nutrition.Nutrition;
+import com.greenfoxacademy.programmersfoxclub.utils.date.DateUtils;
 import org.springframework.stereotype.Service;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -14,14 +12,14 @@ public class NutritionService {
   private long startMinutes;
 
   public NutritionService() {
-    startMinutes = getCurrentMinutes();
+    startMinutes = DateUtils.getCurrentDateTimeInMinutes();
   }
 
   public void reduceNutritionLevel(Fox fox) {
     List<Nutrition> foxNutritionList = fox.getNutritions();
 
     for (Nutrition nutrition : foxNutritionList) {
-      long currentMinutes = getCurrentMinutes();
+      long currentMinutes = DateUtils.getCurrentDateTimeInMinutes();
 
       if (startMinutes + nutrition.getReductionTimeMinutes() <= currentMinutes) {
         int beforeLevel = nutrition.getLevel();
@@ -38,11 +36,5 @@ public class NutritionService {
         }
       }
     }
-  }
-
-  public long getCurrentMinutes() {
-    DateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
-    Date date = new Date();
-    return date.getTime() / 60000;
   }
 }
