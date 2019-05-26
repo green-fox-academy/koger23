@@ -42,4 +42,12 @@ public class SessionService {
     foxKennel.getFoxList().get(activeFoxIndex).getDrink().setName(drink.toLowerCase());
     logger.saveNutritionChange(foxKennel.getFoxList().get(activeFoxIndex).getDrink(), drinkBefore, foxKennel.getFoxList().get(activeFoxIndex).getDrink().getName());
   }
+
+  public void updateFoxAndNutrition() {
+    Fox fox = mainController.getFoxKennel().getFoxList().get(mainController.getActiveFoxIndex());
+
+    if (fox.isAlive()) {
+      nutritionService.reduceNutritionLevel(fox);
+    }
+  }
 }
