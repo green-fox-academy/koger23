@@ -60,13 +60,44 @@ public class NutritionService {
   private void checkLevels(Fox fox, Nutrition nutrition) {
     int beforeLevel = nutrition.getLevel();
     if (beforeLevel > 0) {
+      switch (nutrition.getType()) {
+        case FOOD:
+          increaseHungerLevel(fox);
+        case DRINK:
+          increaseThirstLevel(fox);
+      }
       nutrition.setLevel(beforeLevel - 1);
     } else if (beforeLevel == 0) {
-      if (fox.getHealthPoints() > 0) {
-        fox.setHealthPoints(fox.getHealthPoints() - 1);
-      } else {
-        fox.setAlive(false);
+      switch (nutrition.getType()) {
+        case FOOD:
+          increaseHungerLevel(fox);
+        case DRINK:
+          increaseThirstLevel(fox);
       }
+    }
+  }
+
+  private void increaseThirstLevel(Fox fox) {
+    if (fox.getThirstLevel() < fox.getMAX_THIRST_LEVEL() && fox.getDrink().getLevel() == 0) {
+      fox.setThirstLevel(fox.getThirstLevel() + 1);
+    } else if (fox.getDrink().getLevel() == 0 && fox.getThirstLevel() == fox.getMAX_THIRST_LEVEL()) {
+      reduceFoxHealth(fox);
+    }
+  }
+
+  private void increaseHungerLevel(Fox fox) {
+    if (fox.getHungerLevel() < fox.getMAX_HUNGER_LEVEL() && fox.getFood().getLevel() == 0) {
+      fox.setHungerLevel(fox.getHungerLevel() + 1);
+    } else if (fox.getFood().getLevel() == 0 && fox.getHungerLevel() == fox.getMAX_HUNGER_LEVEL()) {
+      reduceFoxHealth(fox);
+    }
+  }
+
+  private void reduceFoxHealth(Fox fox) {
+    if (fox.getHealthPoints() > 0) {
+      fox.setHealthPoints(fox.getHealthPoints() - 1);
+    } else {
+      fox.setAlive(false);
     }
   }
 
