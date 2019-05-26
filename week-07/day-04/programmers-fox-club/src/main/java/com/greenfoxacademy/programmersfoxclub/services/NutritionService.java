@@ -37,4 +37,12 @@ public class NutritionService {
       }
     }
   }
+
+  public void feed(Fox fox, Nutrition nutrition) {
+    if (fox.getFood() == nutrition) {
+      fox.setHungerLevel(nutrition.getHungerReductionPoints());
+    } else {
+      fox.setThirstLevel(nutrition.getThirstReductionPoints());
+    }
+  }
 }
