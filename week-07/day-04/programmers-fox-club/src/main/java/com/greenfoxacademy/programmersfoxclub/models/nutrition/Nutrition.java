@@ -1,23 +1,37 @@
 package com.greenfoxacademy.programmersfoxclub.models.nutrition;
 
 public class Nutrition {
-  private String type;
+  private Type type;
   private final int MAX_LEVEL = 10;
   private int level;
   private int reductionTimeMinutes;
   private int hungerReductionPoints;
   private int thirstReductionPoints;
 
-  public Nutrition(String type) {
+  public Nutrition(Type type) {
     this.type = type;
     this.level = MAX_LEVEL;
   }
 
-  public String getType() {
+  public enum Type {
+    DRINK,
+    FOOD
+  }
+
+  public String getTypeEnum() {
+    switch(type) {
+      case FOOD:
+        return "Food";
+      case DRINK:
+        return "Drink";
+    }
+    return "Nutrition";
+  }
+  public Type getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(Type type) {
     this.type = type;
   }
 
