@@ -7,8 +7,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class SessionService {
   private MainController mainController;
+  private NutritionService nutritionService;
 
-  public SessionService() {
+  public SessionService(NutritionService nutritionService) {
+    this.nutritionService = nutritionService;
   }
 
   public void login(Fox fox) {
