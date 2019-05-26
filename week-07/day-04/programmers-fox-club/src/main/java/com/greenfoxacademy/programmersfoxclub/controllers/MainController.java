@@ -1,7 +1,7 @@
 package com.greenfoxacademy.programmersfoxclub.controllers;
 
-import com.greenfoxacademy.programmersfoxclub.models.Fox;
-import com.greenfoxacademy.programmersfoxclub.repositories.Logger;
+import com.greenfoxacademy.programmersfoxclub.models.charachter.Fox;
+import com.greenfoxacademy.programmersfoxclub.services.Logger;
 import com.greenfoxacademy.programmersfoxclub.services.FoxKennel;
 import com.greenfoxacademy.programmersfoxclub.services.SessionService;
 import org.springframework.stereotype.Controller;

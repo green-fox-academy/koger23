@@ -1,4 +1,4 @@
-package com.greenfoxacademy.programmersfoxclub.models.date;
+package com.greenfoxacademy.programmersfoxclub.utils.date;
 
 import java.text.DateFormat;
 import java.text.ParseException;

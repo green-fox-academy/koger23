@@ -1,8 +1,8 @@
 package com.greenfoxacademy.programmersfoxclub.services;
 
-import com.greenfoxacademy.programmersfoxclub.models.Drink;
-import com.greenfoxacademy.programmersfoxclub.models.Food;
-import com.greenfoxacademy.programmersfoxclub.models.Fox;
+import com.greenfoxacademy.programmersfoxclub.models.nutrition.Drink;
+import com.greenfoxacademy.programmersfoxclub.models.nutrition.Food;
+import com.greenfoxacademy.programmersfoxclub.models.charachter.Fox;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

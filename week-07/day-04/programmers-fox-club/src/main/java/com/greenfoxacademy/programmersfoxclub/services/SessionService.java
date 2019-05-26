@@ -1,8 +1,7 @@
 package com.greenfoxacademy.programmersfoxclub.services;
 
 import com.greenfoxacademy.programmersfoxclub.controllers.MainController;
-import com.greenfoxacademy.programmersfoxclub.models.Fox;
-import com.greenfoxacademy.programmersfoxclub.repositories.Logger;
+import com.greenfoxacademy.programmersfoxclub.models.charachter.Fox;
 import org.springframework.stereotype.Service;
 
 @Service
