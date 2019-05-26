@@ -22,6 +22,8 @@ public class Fox {
   private long birthDateInMinutes = 0;
   private int thirstLevel = 0;
   private int hungerLevel = 0;
+  private final int MAX_HUNGER_LEVEL = 10;
+  private final int MAX_THIRST_LEVEL = 5;
 
   public Fox() {
     this("", new Food("pudding"), new Drink("beer"));
@@ -142,5 +144,13 @@ public class Fox {
 
   public void setHungerLevel(int hungerLevel) {
     this.hungerLevel = hungerLevel;
+  }
+
+  public int getMAX_HUNGER_LEVEL() {
+    return MAX_HUNGER_LEVEL;
+  }
+
+  public int getMAX_THIRST_LEVEL() {
+    return MAX_THIRST_LEVEL;
   }
 }
