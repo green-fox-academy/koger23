@@ -1,8 +1,8 @@
 package score;
 
 public class Score {
-  public static String getScoreIfDraw(int m_score1) {
-    switch (m_score1) {
+  public static String getScoreIfDraw(int playerOneScore) {
+    switch (playerOneScore) {
       case 0:
         return "Love-All";
       case 1:
