@@ -6,7 +6,8 @@ public class ScoreBuilder {
     if (round != 1) {
       score.append("-");
     }
-    switch (TempScore.getTempScore(playerOneScore, playerTwoScore, round)) {      case 0:
+    switch (TempScore.getTempScore(playerOneScore, playerTwoScore, round)) {
+      case 0:
         score.append("Love");
         break;
       case 1:
