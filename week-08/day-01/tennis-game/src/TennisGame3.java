@@ -1,3 +1,4 @@
+import score.Score;
 
 public class TennisGame3 implements TennisGame {
   private int playerTwoScore;
@@ -11,18 +12,7 @@ public class TennisGame3 implements TennisGame {
   }
 
   public String getScore() {
-    String score;
-    if (playerOneScore < 4 && playerTwoScore < 4) {
-      String[] p = new String[]{"Love", "Fifteen", "Thirty", "Forty"};
-      score = p[playerOneScore];
-      return (playerOneScore == playerTwoScore) ? score + "-All" : score + "-" + p[playerTwoScore];
-    } else {
-      if (playerOneScore == playerTwoScore) {
-        return "Deuce";
-      }
-      score = playerOneScore > playerTwoScore ? playerOneName : playerTwoName;
-      return ((playerOneScore - playerTwoScore) * (playerOneScore - playerTwoScore) == 1) ? "Advantage " + score : "Win for " + score;
-    }
+    return Score.getScore(playerOneScore, playerTwoScore);
   }
 
   public void wonPoint(String playerName) {
