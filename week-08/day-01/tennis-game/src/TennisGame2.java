@@ -14,6 +14,14 @@ public class TennisGame2 implements TennisGame {
     this.playerTwoName = playerTwoName;
   }
 
+  public void wonPoint(String player) {
+    if (player.equals("player1")) {
+      increasePlayerOneScoreByOne();
+    } else {
+      increasePlayerTwoScoreByOne();
+    }
+  }
+
   public String getScore() {
     return Score.getScore(playerOneScore, playerTwoScore);
   }
@@ -24,13 +32,6 @@ public class TennisGame2 implements TennisGame {
 
   public void increasePlayerTwoScoreByOne() {
     playerTwoScore++;
-  }
-
-  public void wonPoint(String player) {
-    if (player == "player1")
-      increasePlayerOneScoreByOne();
-    else
-      increasePlayerTwoScoreByOne();
   }
 
   public int getPlayerOneScore() {
