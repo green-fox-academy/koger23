@@ -2,28 +2,28 @@ import score.Score;
 
 public class TennisGame1 implements TennisGame {
 
-  private int m_score1 = 0;
-  private int m_score2 = 0;
-  private String player1Name;
-  private String player2Name;
+  private int playerOneScore = 0;
+  private int playerTwoScore = 0;
+  private String playerOneName;
+  private String playerTwoName;
 
-  public TennisGame1(String player1Name, String player2Name) {
-    this.player1Name = player1Name;
-    this.player2Name = player2Name;
+  public TennisGame1(String playerOneName, String playerTwoName) {
+    this.playerOneName = playerOneName;
+    this.playerTwoName = playerTwoName;
   }
 
   public void wonPoint(String playerName) {
     if (playerName.equals("player1")) {
-      m_score1 += 1;
+      playerOneScore += 1;
     } else {
-      m_score2 += 1;
+      playerTwoScore += 1;
     }
   }
 
   public String getScore() {
-    if (m_score1 == m_score2) {
-      return Score.getScoreIfDraw(m_score1);
-    } else if (m_score1 >= 4 || m_score2 >= 4) {
+    if (playerOneScore == playerTwoScore) {
+      return Score.getScoreIfDraw(playerOneScore);
+    } else if (playerOneScore >= 4 || playerTwoScore >= 4) {
       return getScoreIfMinusResultIsOne();
     } else {
       return getRunningScore();
@@ -31,7 +31,7 @@ public class TennisGame1 implements TennisGame {
   }
 
   private String getScoreIfMinusResultIsOne() {
-    int minusResult = m_score1 - m_score2;
+    int minusResult = playerOneScore - playerTwoScore;
     if (minusResult == 1) {
       return "Advantage player1";
     } else if (minusResult == -1) {
@@ -53,9 +53,9 @@ public class TennisGame1 implements TennisGame {
 
   private int getTempScore(int i) {
     if (i == 1) {
-      return m_score1;
+      return playerOneScore;
     } else {
-      return m_score2;
+      return playerTwoScore;
     }
   }
 
@@ -80,36 +80,36 @@ public class TennisGame1 implements TennisGame {
     return score.toString();
   }
 
-  public int getM_score1() {
-    return m_score1;
+  public int getPlayerOneScore() {
+    return playerOneScore;
   }
 
-  public void setM_score1(int m_score1) {
-    this.m_score1 = m_score1;
+  public void setPlayerOneScore(int playerOneScore) {
+    this.playerOneScore = playerOneScore;
   }
 
-  public int getM_score2() {
-    return m_score2;
+  public int getPlayerTwoScore() {
+    return playerTwoScore;
   }
 
-  public void setM_score2(int m_score2) {
-    this.m_score2 = m_score2;
+  public void setPlayerTwoScore(int playerTwoScore) {
+    this.playerTwoScore = playerTwoScore;
   }
 
-  public String getPlayer1Name() {
-    return player1Name;
+  public String getPlayerOneName() {
+    return playerOneName;
   }
 
-  public void setPlayer1Name(String player1Name) {
-    this.player1Name = player1Name;
+  public void setPlayerOneName(String playerOneName) {
+    this.playerOneName = playerOneName;
   }
 
-  public String getPlayer2Name() {
-    return player2Name;
+  public String getPlayerTwoName() {
+    return playerTwoName;
   }
 
-  public void setPlayer2Name(String player2Name) {
-    this.player2Name = player2Name;
+  public void setPlayerTwoName(String playerTwoName) {
+    this.playerTwoName = playerTwoName;
   }
 }
 
