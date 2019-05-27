@@ -4,8 +4,6 @@ public class TennisGame2 implements TennisGame {
   public int playerOneScore = 0;
   public int playerTwoScore = 0;
 
-  public String P1res = "";
-  public String P2res = "";
   private String playerOneName;
   private String playerTwoName;
 
@@ -48,22 +46,6 @@ public class TennisGame2 implements TennisGame {
 
   public void setPlayerTwoScore(int playerTwoScore) {
     this.playerTwoScore = playerTwoScore;
-  }
-
-  public String getP1res() {
-    return P1res;
-  }
-
-  public void setP1res(String p1res) {
-    P1res = p1res;
-  }
-
-  public String getP2res() {
-    return P2res;
-  }
-
-  public void setP2res(String p2res) {
-    P2res = p2res;
   }
 
   public String getPlayerOneName() {
