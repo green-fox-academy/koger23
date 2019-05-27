@@ -1,36 +1,36 @@
 
 public class TennisGame3 implements TennisGame {
-  private int p2;
-  private int p1;
-  private String p1N;
-  private String p2N;
+  private int playerTwoScore;
+  private int playerOneScore;
+  private String playerOneName;
+  private String playerTwoName;
 
-  public TennisGame3(String p1N, String p2N) {
-    this.p1N = p1N;
-    this.p2N = p2N;
+  public TennisGame3(String playerOneName, String playerTwoName) {
+    this.playerOneName = playerOneName;
+    this.playerTwoName = playerTwoName;
   }
 
   public String getScore() {
-    String s;
-    if (p1 < 4 && p2 < 4) {
+    String score;
+    if (playerOneScore < 4 && playerTwoScore < 4) {
       String[] p = new String[]{"Love", "Fifteen", "Thirty", "Forty"};
-      s = p[p1];
-      return (p1 == p2) ? s + "-All" : s + "-" + p[p2];
+      score = p[playerOneScore];
+      return (playerOneScore == playerTwoScore) ? score + "-All" : score + "-" + p[playerTwoScore];
     } else {
-      if (p1 == p2) {
+      if (playerOneScore == playerTwoScore) {
         return "Deuce";
       }
-      s = p1 > p2 ? p1N : p2N;
-      return ((p1 - p2) * (p1 - p2) == 1) ? "Advantage " + s : "Win for " + s;
+      score = playerOneScore > playerTwoScore ? playerOneName : playerTwoName;
+      return ((playerOneScore - playerTwoScore) * (playerOneScore - playerTwoScore) == 1) ? "Advantage " + score : "Win for " + score;
     }
   }
 
   public void wonPoint(String playerName) {
     if (playerName == "player1") {
-      this.p1 += 1;
+      this.playerOneScore += 1;
     }
     else {
-      this.p2 += 1;
+      this.playerTwoScore += 1;
     }
   }
 }
