@@ -87,29 +87,29 @@ public class TennisGame2 implements TennisGame {
 
   public void SetP1Score(int number) {
     for (int i = 0; i < number; i++) {
-      P1Score();
+      increasePlayerOneScoreByOne();
     }
   }
 
   public void SetP2Score(int number) {
     for (int i = 0; i < number; i++) {
-      P2Score();
+      increasePlayerTwoScoreByOne();
     }
   }
 
-  public void P1Score() {
+  public void increasePlayerOneScoreByOne() {
     playerOneScore++;
   }
 
-  public void P2Score() {
+  public void increasePlayerTwoScoreByOne() {
     playerTwoScore++;
   }
 
   public void wonPoint(String player) {
     if (player == "player1")
-      P1Score();
+      increasePlayerOneScoreByOne();
     else
-      P2Score();
+      increasePlayerTwoScoreByOne();
   }
 
   public int getPlayerOneScore() {
