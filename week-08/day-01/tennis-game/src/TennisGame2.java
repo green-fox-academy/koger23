@@ -18,18 +18,6 @@ public class TennisGame2 implements TennisGame {
     return Score.getScore(playerOneScore, playerTwoScore);
   }
 
-  public void SetP1Score(int number) {
-    for (int i = 0; i < number; i++) {
-      increasePlayerOneScoreByOne();
-    }
-  }
-
-  public void SetP2Score(int number) {
-    for (int i = 0; i < number; i++) {
-      increasePlayerTwoScoreByOne();
-    }
-  }
-
   public void increasePlayerOneScoreByOne() {
     playerOneScore++;
   }
