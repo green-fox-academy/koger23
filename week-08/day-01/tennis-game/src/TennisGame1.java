@@ -1,3 +1,5 @@
+import score.MinusResult;
+import score.RunningScore;
 import score.Score;
 
 public class TennisGame1 implements TennisGame {
@@ -24,60 +26,10 @@ public class TennisGame1 implements TennisGame {
     if (playerOneScore == playerTwoScore) {
       return Score.getScoreIfDraw(playerOneScore);
     } else if (playerOneScore >= 4 || playerTwoScore >= 4) {
-      return getScoreIfMinusResultIsOne();
+      return MinusResult.getScoreIfMinusResultIsOne(playerOneScore, playerTwoScore);
     } else {
-      return getRunningScore();
+      return RunningScore.getRunningScore(playerOneScore, playerTwoScore);
     }
-  }
-
-  private String getScoreIfMinusResultIsOne() {
-    int minusResult = playerOneScore - playerTwoScore;
-    if (minusResult == 1) {
-      return "Advantage player1";
-    } else if (minusResult == -1) {
-      return "Advantage player2";
-    } else if (minusResult >= 2) {
-      return "Win for player1";
-    } else {
-      return "Win for player2";
-    }
-  }
-
-  private String getRunningScore() {
-    StringBuilder score = new StringBuilder();
-    for (int i = 1; i < 3; i++) {
-      score.append(buildScore(i));
-    }
-    return score.toString();
-  }
-
-  private int getTempScore(int i) {
-    if (i == 1) {
-      return playerOneScore;
-    } else {
-      return playerTwoScore;
-    }
-  }
-
-  private String buildScore(int round) {
-    StringBuilder score = new StringBuilder();
-    if (round != 1) {
-      score.append("-");
-    }
-    switch (getTempScore(round)) {      case 0:
-        score.append("Love");
-        break;
-      case 1:
-        score.append("Fifteen");
-        break;
-      case 2:
-        score.append("Thirty");
-        break;
-      case 3:
-        score.append("Forty");
-        break;
-    }
-    return score.toString();
   }
 
   public int getPlayerOneScore() {
