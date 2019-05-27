@@ -1,3 +1,4 @@
+import score.Score;
 
 public class TennisGame1 implements TennisGame {
 
@@ -21,26 +22,11 @@ public class TennisGame1 implements TennisGame {
 
   public String getScore() {
     if (m_score1 == m_score2) {
-      return getScoreIfDraw();
+      return Score.getScoreIfDraw(m_score1);
     } else if (m_score1 >= 4 || m_score2 >= 4) {
       return getScoreIfMinusResultIsOne();
     } else {
       return getRunningScore();
-    }
-  }
-
-  private String getScoreIfDraw() {
-    switch (m_score1) {
-      case 0:
-        return "Love-All";
-      case 1:
-        return "Fifteen-All";
-      case 2:
-        return "Thirty-All";
-      case 3:
-        return "Forty-All";
-      default:
-        return "Deuce";
     }
   }
 
@@ -73,13 +59,12 @@ public class TennisGame1 implements TennisGame {
     }
   }
 
-  private String buildScore(int i) {
+  private String buildScore(int round) {
     StringBuilder score = new StringBuilder();
-    if (i != 1) {
+    if (round != 1) {
       score.append("-");
     }
-    switch (getTempScore(i)) {
-      case 0:
+    switch (getTempScore(round)) {      case 0:
         score.append("Love");
         break;
       case 1:
