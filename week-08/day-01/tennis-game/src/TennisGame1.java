@@ -1,5 +1,3 @@
-import score.MinusResult;
-import score.RunningScore;
 import score.Score;
 
 public class TennisGame1 implements TennisGame {
@@ -23,13 +21,7 @@ public class TennisGame1 implements TennisGame {
   }
 
   public String getScore() {
-    if (playerOneScore == playerTwoScore) {
-      return Score.getScoreIfDraw(playerOneScore);
-    } else if (playerOneScore >= 4 || playerTwoScore >= 4) {
-      return MinusResult.getScoreIfMinusResultIsOne(playerOneScore, playerTwoScore);
-    } else {
-      return RunningScore.getRunningScore(playerOneScore, playerTwoScore);
-    }
+    return Score.getScore(playerOneScore, playerTwoScore);
   }
 
   public int getPlayerOneScore() {

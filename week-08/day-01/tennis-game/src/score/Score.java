@@ -15,4 +15,14 @@ public class Score {
         return "Deuce";
     }
   }
+
+  public static String getScore(int playerOneScore, int playerTwoScore) {
+    if (playerOneScore == playerTwoScore) {
+      return Score.getScoreIfDraw(playerOneScore);
+    } else if (playerOneScore >= 4 || playerTwoScore >= 4) {
+      return MinusResult.getScoreIfMinusResultIsOne(playerOneScore, playerTwoScore);
+    } else {
+      return RunningScore.getRunningScore(playerOneScore, playerTwoScore);
+    }
+  }
 }
