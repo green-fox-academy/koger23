@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 @Service
 public class TodoService {
 
-  TodoRepository todoRepository;
+  private TodoRepository todoRepository;
 
   public TodoService(TodoRepository todoRepository) {
     this.todoRepository = todoRepository;
