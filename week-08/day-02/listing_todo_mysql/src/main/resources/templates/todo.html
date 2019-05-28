@@ -7,9 +7,22 @@
 <body>
 <div class="todo-list">
     <h1>TODOS FOR TODAY:</h1>
-    <ul th:each="todo : ${todolist}">
-        <li th:text="${todo.title}"></li>
-    </ul>
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>ACTION</th>
+            <th>DONE</th>
+            <th>URGENT</th>
+        </thead>
+        <tbody>
+            <tr th:each="todo: ${todolist}">
+                <td th:text="${todo.id}"></td>
+                <td th:text="${todo.title}"></td>
+                <td th:text="${todo.done}"></td>
+                <td th:text="${todo.urgent}"></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 </body>
 </html>
