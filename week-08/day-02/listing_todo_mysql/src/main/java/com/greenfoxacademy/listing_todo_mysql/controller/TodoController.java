@@ -60,7 +60,7 @@ public class TodoController {
   @GetMapping("/todo/{id}/details")
   public String showDetails(Model model, @PathVariable long id) {
     Todo todo = todoService.findById(id);
-    model.addAttribute(todo);
+    model.addAttribute("todo", todo);
     return "details";
   }
 }
