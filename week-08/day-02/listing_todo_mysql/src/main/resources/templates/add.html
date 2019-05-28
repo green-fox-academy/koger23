@@ -5,7 +5,7 @@
     <title>Add new Todo</title>
 </head>
 <body>
-    <form th:method="post" th:object="${todo}" th:action="@{/todo/added}">
+    <form th:method="post" th:object="${todo}" th:action="@{/todo/add}">
         <label for="action">Action:</label>
         <input id="action" type="text" name="action" th:field="*{title}">
         <label for="urgent">Urgent:</label>
