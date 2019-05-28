@@ -1,6 +1,7 @@
 package com.greenfoxacademy.listing_todo_mysql.model;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class Todo {
@@ -13,20 +14,26 @@ public class Todo {
   private boolean urgent;
   @Column(nullable = false, name = "Done")
   private boolean done;
+  @Column(nullable = false, name = "Created_on")
+  @Temporal(TemporalType.DATE)
+  private Date date;
+  @Column(nullable = false, name = "Created_at")
+  @Temporal(TemporalType.TIME)
+  private Date time;
 
   public Todo(){
   }
 
   public Todo(String title) {
-    this.title = title;
-    this.urgent = false;
-    this.done = false;
+    this(title, false, false, new Date(), new Date());
   }
 
-  public Todo(String title, boolean urgent, boolean done) {
+  public Todo(String title, boolean urgent, boolean done, Date date, Date time) {
     this.title = title;
     this.urgent = urgent;
     this.done = done;
+    this.date = date;
+    this.time = time;
   }
 
   public long getId() {
@@ -59,6 +66,22 @@ public class Todo {
 
   public void setDone(boolean done) {
     this.done = done;
+  }
+
+  public Date getDate() {
+    return date;
+  }
+
+  public void setDate(Date date) {
+    this.date = date;
+  }
+
+  public Date getTime() {
+    return time;
+  }
+
+  public void setTime(Date time) {
+    this.time = time;
   }
 }
 
