@@ -8,7 +8,7 @@
     <form th:method="post" th:object="${todo}" th:action="@{/todo/added}">
         <label for="action">Action:</label>
         <input id="action" type="text" name="action" th:field="*{title}">
-        <label for="urgent">Action:</label>
+        <label for="urgent">Urgent:</label>
         <input id="urgent" type="checkbox" name="urgent" th:field="*{urgent}">
         <button type="submit">Add</button>
     </form>
