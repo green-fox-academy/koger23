@@ -21,6 +21,7 @@
                 <td th:text="${todo.title}"></td>
                 <td th:text="${todo.done}"></td>
                 <td th:text="${todo.urgent}"></td>
+                <td><a th:href= "|@{todo/delete/}${todo.id}|">delete</a></td>
             </tr>
         </tbody>
     </table>
