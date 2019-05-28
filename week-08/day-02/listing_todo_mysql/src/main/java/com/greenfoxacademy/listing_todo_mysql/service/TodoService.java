@@ -28,7 +28,7 @@ public class TodoService {
     return filteredList;
   }
 
-  public void add(String title) {
-    todoRepository.save(new Todo(title));
+  public void add(Todo todo) {
+    todoRepository.save(todo);
   }
 }
