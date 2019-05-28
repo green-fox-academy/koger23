@@ -20,7 +20,7 @@ public class TodoService {
   public List<Todo> findAll() {
     List<Todo> todoList = new ArrayList<>();
     todoRepository.findAll().forEach(todoList::add);
-    return todoList;
+    return todoList.stream().sorted(Comparator.comparing(todo -> todo.getId())).collect(Collectors.toList());
   }
 
   public List<Todo> findActive() {
