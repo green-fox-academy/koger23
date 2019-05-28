@@ -12,6 +12,7 @@
         <thead>
             <th>ID</th>
             <th>ACTION</th>
+            <th>CREATED</th>
             <th>DONE</th>
             <th>URGENT</th>
         </thead>
@@ -19,6 +20,7 @@
             <tr th:each="todo: ${todolist}">
                 <td th:text="${todo.id}"></td>
                 <td th:text="${todo.title}"></td>
+                <td th:text="${todo.date}"></td>
                 <td th:text="${todo.done}"></td>
                 <td th:text="${todo.urgent}"></td>
                 <td><a th:href= "|@{todo/edit/}${todo.id}|">edit</a></td>
