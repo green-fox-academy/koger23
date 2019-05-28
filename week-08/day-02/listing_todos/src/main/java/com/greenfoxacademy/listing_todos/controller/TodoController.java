@@ -9,11 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class TodoController {
 
-  private TodoRepository todoRepository;
   private TodoService todoService;
 
-  public TodoController(TodoRepository todoRepository, TodoService todoService) {
-    this.todoRepository = todoRepository;
+  public TodoController(TodoService todoService) {
     this.todoService = todoService;
     todoService.add("Finish this task");
     todoService.add("Finish all task");
