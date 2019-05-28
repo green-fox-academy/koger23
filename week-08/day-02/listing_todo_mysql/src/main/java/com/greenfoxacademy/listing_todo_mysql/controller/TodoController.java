@@ -1,7 +1,6 @@
-package com.greenfoxacademy.listing_todos.controller;
+package com.greenfoxacademy.listing_todo_mysql.controller;
 
-
-import com.greenfoxacademy.listing_todos.service.TodoService;
+import com.greenfoxacademy.listing_todo_mysql.service.TodoService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,8 +12,6 @@ public class TodoController {
 
   public TodoController(TodoService todoService) {
     this.todoService = todoService;
-    todoService.add("Finish this task");
-    todoService.add("Finish all task");
   }
 
   @GetMapping("/todo")
