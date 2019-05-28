@@ -5,6 +5,7 @@ import com.greenfoxacademy.listing_todo_mysql.repository.TodoRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -34,5 +35,18 @@ public class TodoService {
 
   public void delete(long id) {
     todoRepository.deleteById(id);
+  }
+
+  public Todo findById(long id) {
+    return todoRepository.findById(id)
+            .orElse(new Todo());
+  }
+
+  public void update(long id, Todo newTodo) {
+    Todo todo = todoRepository.findById(id).get();
+    todo.setTitle(newTodo.getTitle());
+    todo.setUrgent(newTodo.isUrgent());
+    todo.setDone(newTodo.isDone());
+    todoRepository.save(todo);
   }
 }
