@@ -28,12 +28,37 @@ public class GuardianControllerTest {
             .andExpect(jsonPath("$.received", is(message)));
 
   }
-  
+
   @Test
   public void groot_shoudReturnNotOK() throws Exception {
     mockMvc.perform(get("/groot"))
             .andExpect(status().isBadRequest())
             .andExpect(jsonPath("$.error", is("I am a Groot!")));
 
+  }
+
+  @Test
+  public void yondu_shouldReturnOK() throws Exception {
+    long distance = 1000;
+    long time = 100;
+    mockMvc.perform(get("/yondu?distance=" + distance + "&time=" + time))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("speed", is(10)));
+  }
+
+  @Test
+  public void yondu_shouldReturnNotOK_MissingParameter() throws Exception {
+    mockMvc.perform(get("/yondu"))
+            .andExpect(status().isBadRequest())
+            .andExpect(content().string("Error: missing parameter time or distance."));
+  }
+
+  @Test
+  public void yondu_shouldReturnNotOK_DivisionByZero() throws Exception {
+    long distance = 1000;
+    long time = 0;
+    mockMvc.perform(get("/yondu?distance=" + distance + "&time=" + time))
+            .andExpect(status().isNotAcceptable())
+            .andExpect(content().string("Error: dividing by zero. Time cannot be zero!"));
   }
 }
