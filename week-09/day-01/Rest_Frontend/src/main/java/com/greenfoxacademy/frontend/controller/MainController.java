@@ -1,6 +1,6 @@
 package com.greenfoxacademy.frontend.controller;
 
-import com.greenfoxacademy.frontend.model.Log;
+import com.greenfoxacademy.frontend.model.entitiy.Log;
 import com.greenfoxacademy.frontend.service.ILogService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

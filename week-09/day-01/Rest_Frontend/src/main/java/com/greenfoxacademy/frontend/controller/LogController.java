@@ -1,6 +1,6 @@
 package com.greenfoxacademy.frontend.controller;
 
-import com.greenfoxacademy.frontend.model.LogStatistic;
+import com.greenfoxacademy.frontend.model.dto.LogStatistic;
 import com.greenfoxacademy.frontend.repository.LogRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

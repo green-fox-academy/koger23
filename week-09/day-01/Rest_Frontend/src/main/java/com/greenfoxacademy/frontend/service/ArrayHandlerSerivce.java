@@ -1,12 +1,10 @@
 package com.greenfoxacademy.frontend.service;
 
-import com.greenfoxacademy.frontend.model.ArrayObject;
-import com.greenfoxacademy.frontend.model.ArrayResult;
-import com.greenfoxacademy.frontend.model.ArrayResultDoubled;
+import com.greenfoxacademy.frontend.model.dto.ArrayObject;
+import com.greenfoxacademy.frontend.model.dto.ArrayResult;
+import com.greenfoxacademy.frontend.model.dto.ArrayResultDoubled;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.Arrays;
 
 @Getter
 @Setter

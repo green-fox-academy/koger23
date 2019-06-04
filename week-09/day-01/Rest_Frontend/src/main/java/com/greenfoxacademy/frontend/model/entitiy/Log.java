@@ -1,4 +1,4 @@
-package com.greenfoxacademy.frontend.model;
+package com.greenfoxacademy.frontend.model.entitiy;
 
 
 import lombok.Getter;

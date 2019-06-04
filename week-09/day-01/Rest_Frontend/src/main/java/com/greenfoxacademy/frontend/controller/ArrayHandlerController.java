@@ -1,7 +1,7 @@
 package com.greenfoxacademy.frontend.controller;
 
-import com.greenfoxacademy.frontend.model.ArrayObject;
-import com.greenfoxacademy.frontend.model.Log;
+import com.greenfoxacademy.frontend.model.dto.ArrayObject;
+import com.greenfoxacademy.frontend.model.entitiy.Log;
 import com.greenfoxacademy.frontend.service.ArrayHandlerSerivce;
 import com.greenfoxacademy.frontend.service.ILogService;
 import org.springframework.http.HttpStatus;

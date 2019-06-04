@@ -1,6 +1,6 @@
 package com.greenfoxacademy.frontend.service;
 
-import com.greenfoxacademy.frontend.model.Log;
+import com.greenfoxacademy.frontend.model.entitiy.Log;
 import com.greenfoxacademy.frontend.repository.LogRepository;
 import lombok.Getter;
 import lombok.Setter;

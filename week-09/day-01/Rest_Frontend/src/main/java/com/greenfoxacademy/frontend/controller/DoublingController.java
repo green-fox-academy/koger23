@@ -3,7 +3,7 @@ package com.greenfoxacademy.frontend.controller;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.greenfoxacademy.frontend.model.Log;
+import com.greenfoxacademy.frontend.model.entitiy.Log;
 import com.greenfoxacademy.frontend.service.ILogService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;

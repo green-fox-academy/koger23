@@ -1,6 +1,6 @@
 package com.greenfoxacademy.frontend.controller;
 
-import com.greenfoxacademy.frontend.model.Log;
+import com.greenfoxacademy.frontend.model.entitiy.Log;
 import com.greenfoxacademy.frontend.service.ILogService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

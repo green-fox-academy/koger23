@@ -1,4 +1,4 @@
-package com.greenfoxacademy.frontend.model;
+package com.greenfoxacademy.frontend.model.dto;
 
 import lombok.Getter;
 import lombok.Setter;

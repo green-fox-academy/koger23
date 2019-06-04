@@ -1,8 +1,8 @@
 package com.greenfoxacademy.frontend.controller;
 
-import com.greenfoxacademy.frontend.model.DoUntilResult;
-import com.greenfoxacademy.frontend.model.DoUntilInput;
-import com.greenfoxacademy.frontend.model.Log;
+import com.greenfoxacademy.frontend.model.dto.DoUntilResult;
+import com.greenfoxacademy.frontend.model.dto.DoUntilInput;
+import com.greenfoxacademy.frontend.model.entitiy.Log;
 import com.greenfoxacademy.frontend.service.ILogService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +19,9 @@ public class DoUntilController {
   @PostMapping("/dountil/{action}")
   public ResponseEntity<?> doUntil(@PathVariable("action") String action, @RequestBody DoUntilInput doUntilInput) {
     DoUntilResult doUntilResult;
+    if (doUntilInput == null) {
+      throw new NullPointerException();
+    }
     if (action.equals("sum")) {
       doUntilResult = new DoUntilResult(doUntilInput.getSum());
       Log log = new Log("/dountil/" + action, String.valueOf(doUntilInput.getSum()));
@@ -35,6 +38,6 @@ public class DoUntilController {
 
   @ExceptionHandler(NullPointerException.class)
   public ResponseEntity<?> notFoundException() {
-    return new ResponseEntity<>("not found", HttpStatus.NOT_FOUND);
+    return new ResponseEntity<>("ERROR: not found", HttpStatus.NOT_FOUND);
   }
 }

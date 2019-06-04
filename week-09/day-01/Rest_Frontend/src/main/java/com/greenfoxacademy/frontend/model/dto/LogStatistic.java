@@ -1,5 +1,6 @@
-package com.greenfoxacademy.frontend.model;
+package com.greenfoxacademy.frontend.model.dto;
 
+import com.greenfoxacademy.frontend.model.entitiy.Log;
 import lombok.Getter;
 import lombok.Setter;
 
