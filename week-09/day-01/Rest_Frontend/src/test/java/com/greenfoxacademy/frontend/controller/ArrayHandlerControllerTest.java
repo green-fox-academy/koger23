@@ -1,8 +1,5 @@
 package com.greenfoxacademy.frontend.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.greenfoxacademy.frontend.model.dto.ArrayObject;
-import com.greenfoxacademy.frontend.service.ArrayHandlerSerivce;
 import com.greenfoxacademy.frontend.service.ILogService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,16 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.nio.charset.Charset;
 
 import static org.hamcrest.core.Is.is;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 
