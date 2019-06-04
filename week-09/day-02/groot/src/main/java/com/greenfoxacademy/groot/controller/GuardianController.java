@@ -3,6 +3,7 @@ package com.greenfoxacademy.groot.controller;
 import com.greenfoxacademy.groot.DTO.MessageDTO;
 import com.greenfoxacademy.groot.DTO.NoMessageError;
 import com.greenfoxacademy.groot.DTO.YondusArrowDTO;
+import com.greenfoxacademy.groot.service.RocketService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -12,6 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class GuardianController {
+
+  RocketService rocketService;
+
+  public GuardianController(RocketService rocketService) {
+    this.rocketService = rocketService;
+  }
 
   @GetMapping("/groot")
   public ResponseEntity<?> groot(@RequestParam(value = "message", required = false) String message) {
@@ -29,6 +36,16 @@ public class GuardianController {
     } else {
       return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error: missing parameter time or distance.");
     }
+  }
+
+  @GetMapping("/rocket")
+  public ResponseEntity<?> cargo() {
+    return ResponseEntity.status(HttpStatus.OK).body(rocketService.cargoStatus());
+  }
+
+  @GetMapping("/rocket/fill")
+  public ResponseEntity<?> fill(String caliber, long amount) {
+    return ResponseEntity.status(HttpStatus.OK).body(rocketService.fillShip(caliber, amount));
   }
 
   @ExceptionHandler(ArithmeticException.class)
