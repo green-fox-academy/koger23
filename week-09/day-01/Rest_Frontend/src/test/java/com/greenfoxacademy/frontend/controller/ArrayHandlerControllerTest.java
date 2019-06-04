@@ -37,7 +37,7 @@ public class ArrayHandlerControllerTest {
             .contentType(MediaType.APPLICATION_JSON)
             .content("{\"what\": \"sum\", " +
                     "\"numbers\": [1, 2, 5, 10]}")
-                    )
+    )
             .andExpect(status().isOk())
             .andExpect(content().contentType(contentType))
             .andExpect(jsonPath("$.result", is(18)));
@@ -49,7 +49,7 @@ public class ArrayHandlerControllerTest {
             .contentType(MediaType.APPLICATION_JSON)
             .content("{\"what\": \"multiply\", " +
                     "\"numbers\": [1, 2, 5, 10]}")
-                    )
+    )
             .andExpect(status().isOk())
             .andExpect(content().contentType(contentType))
             .andExpect(jsonPath("$.result", is(100)));
@@ -61,7 +61,7 @@ public class ArrayHandlerControllerTest {
             .contentType(MediaType.APPLICATION_JSON)
             .content("{\"what\": \"double\", " +
                     "\"numbers\": [1, 2, 5, 10]}")
-                    )
+    )
             .andExpect(status().isOk())
             .andExpect(content().contentType(contentType))
             .andExpect(content().json("{\"result\":[2, 4, 10, 20]}"));
