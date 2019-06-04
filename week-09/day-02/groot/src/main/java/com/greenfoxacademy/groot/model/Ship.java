@@ -14,15 +14,15 @@ public class Ship {
     caliber25 = 0;
     caliber30 = 0;
     caliber50 = 0;
-    shipstatus = "0%";
+    shipstatus = "empty";
     ready = false;
   }
 
   public void checkStatus() {
-//    double status = 100 *  5000 / 12500;
     double status = 100 *  ((caliber50 + caliber25 + caliber30) / (double) MAX_AMOUNT);
-    shipstatus = String.valueOf( status + "%");
+    shipstatus = status + "%";
     if (status == 100) {
+      shipstatus = "full";
       ready = true;
     }
   }

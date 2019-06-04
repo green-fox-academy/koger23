@@ -8,6 +8,9 @@ public class FillStatusDTO {
   private String shipstatus;
   private boolean ready;
 
+  public FillStatusDTO() {
+  }
+
   public FillStatusDTO(Ship ship, String caliber, long amount) {
     received = caliber;
     this.amount = amount;

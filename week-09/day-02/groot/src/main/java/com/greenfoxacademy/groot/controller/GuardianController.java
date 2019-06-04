@@ -48,8 +48,20 @@ public class GuardianController {
     return ResponseEntity.status(HttpStatus.OK).body(rocketService.fillShip(caliber, amount));
   }
 
-  @ExceptionHandler(ArithmeticException.class)
+  @ExceptionHandler(NullPointerException.class)
+  public ResponseEntity<?> customNullPointer() {
+    return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Error: null pointer exception");
+  }
+
+  @ExceptionHandler({ArithmeticException.class})
   public ResponseEntity<?> dividingByZero() {
     return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Error: dividing by zero. Time cannot be zero!");
   }
+
+  @ExceptionHandler({IllegalStateException.class, NumberFormatException.class})
+  public ResponseEntity<?> parameterError() {
+    return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Error: Parameter is not valid or missing.");
+  }
+
+
 }
