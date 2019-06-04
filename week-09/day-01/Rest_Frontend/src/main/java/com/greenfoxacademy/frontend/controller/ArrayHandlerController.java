@@ -6,7 +6,7 @@ import com.greenfoxacademy.frontend.service.ArrayHandlerSerivce;
 import com.greenfoxacademy.frontend.service.ILogService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,7 +21,7 @@ public class ArrayHandlerController {
     this.logService = logService;
   }
 
-  @GetMapping("/arrays")
+  @PostMapping("/arrays")
   public ResponseEntity<?> handleArray(@RequestBody ArrayObject arrayObject) {
     ArrayHandlerSerivce arrayHandlerSerivce = new ArrayHandlerSerivce();
     arrayHandlerSerivce.setArrayObject(arrayObject);
