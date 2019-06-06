@@ -19,6 +19,7 @@
 * [Trial Exam: Programming Basics](https://github.com/koger23/exam-trial-basics)
 * [Foundation Example Exam](https://github.com/koger23/foundation-example-exam)
 * [Ferrilata Foundation Normal Exam](https://github.com/koger23/ferrilata-foundation-normal-exam)
+* [Orientation Example Exam](https://github.com/koger23/orientation-example-exam)
 
 ## Important links:
 * [Otters' Syllabus](https://github.com/green-fox-academy/otters-syllabus) - syllabus of Java class 2019S01
