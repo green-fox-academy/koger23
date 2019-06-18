@@ -15,7 +15,7 @@
 * [Peer to Peer Chat application](https://github.com/koger23/p2p-chat)
 
 
-### Project-Phase:
+### Project-Phase (C#):
 * [0th week project: WebAPI](https://github.com/green-fox-academy/koger23-todoWebAPI)
 
 #### Exams:
