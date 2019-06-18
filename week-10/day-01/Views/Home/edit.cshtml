@@ -1,0 +1,22 @@
+﻿@using TodoWebApp.Models
+@model  Todo
+@{
+    ViewData["Title"] = "edit";
+}
+
+<h1>Edit Todo</h1>
+@{
+    var todo = (Todo)ViewData["Todo"];
+}
+<form class="form" method="post" action="/todo/edit/@todo.TodoId">
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input name="Name" type="text" value="@todo.Name" autofocus required />
+    </div>
+    <div class="form-group">
+        <label for="task">Description:</label>
+        <input name="Task" type="text" value="@todo.Task" required />
+    </div>
+    <button class="btn btn-primary" type="submit">Save</button>
+</form>
+
