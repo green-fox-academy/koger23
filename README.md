@@ -19,7 +19,7 @@
 * [0th week project: WebAPI](https://github.com/green-fox-academy/koger23-todoWebAPI)
 * [Project: Hotel Booking Web Application](https://github.com/green-fox-academy/ferrilata-bloodstone-hotel-booking)
 
-#### Exams:
+### My Exams:
 * [Trial Exam: Programming Basics](https://github.com/koger23/exam-trial-basics)
 * [Foundation Example Exam](https://github.com/koger23/foundation-example-exam)
 * [Ferrilata Foundation Normal Exam](https://github.com/koger23/ferrilata-foundation-normal-exam)
